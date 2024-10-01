@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shan Oomes - Student Data Science & AI</title>
+  <link rel="icon" href="assets/cross.png" sizes="16x16" type="image/png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="script.js"></script>
+
+  <!-- reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <!-- Meta Tags -->
+  <meta name="description" content="FIX biedt uitgebreide ICT-ondersteuning voor thuis, met deskundige hulp bij installatie, onderhoud en probleemoplossing van uw digitale apparaten. Geniet van moeiteloze technologie in uw dagelijks leven met onze transparante prijzen en positieve klantenreviews. Neem contact op voor zorgeloze technische ondersteuning.">
+  <meta name="keywords" content="ICT ondersteuning thuis, Digitale apparaat hulp, Installatieservice technologie, Onderhoud digitale apparaten, Probleemoplossing ICT, Technische ondersteuning thuis, Transparante ICT prijzen, Klantenreviews ICT services, Contact ICT hulp, Naadloze technologie ervaring">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5G5QP6J26Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5G5QP6J26Q');
+</script>
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div id="navbar">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="#home" class="w3-bar-item w3-button" onclick="smoothScroll('#home', event)" aria-label="Home"><img src="assets/Logo Shan.svg" alt="Self-portret" style="width:50%;"></a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="#services" class="w3-bar-item w3-button" onclick="smoothScroll('#services', event)" aria-label="Meer leren over onze diensten">Services</a>
+            <a href="#kosten" class="w3-bar-item w3-button" onclick="smoothScroll('#kosten', event)" aria-label="Informatie krijgen over kosten">Kosten</a>
+            <a href="#reviews" class="w3-bar-item w3-button" onclick="smoothScroll('#reviews', event)" aria-label="Onze klantbeoordelingen lezen">Reviews</a>
+            <a href="#contact" class="w3-bar-item w3-button" onclick="smoothScroll('#contact', event)" aria-label="Neem contact met ons op voor meer informatie">Contact</a>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <div class="sidebar-container">
+      <ul>
+        <li class="icon-container">
+          <a href="#navbar" class="w3-bar-item w3-button" onclick="smoothScroll('#navbar', event)" aria-label="Home"><span class="icon-container"><i class="fas fa-house"></i></span></a>
+        </li>
+        <li class="icon-container">
+            <a href="#services" class="w3-bar-item w3-button" onclick="smoothScroll('#services', event)" aria-label="Meer leren over onze diensten"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
+        </li>
+        <li class="icon-container">
+            <a href="#kosten" class="w3-bar-item w3-button" onclick="smoothScroll('#kosten', event)" aria-label="Informatie krijgen over kosten"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
+        </li>
+        <li class="icon-container">
+            <a href="#reviews" class="w3-bar-item w3-button" onclick="smoothScroll('#reviews', event)" aria-label="Onze klantbeoordelingen lezen"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
+        </li>
+        <li class="icon-container">
+            <a href="#contact" class="w3-bar-item w3-button" onclick="smoothScroll('#contact', event)" aria-label="Neem contact met ons op voor meer informatie"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
+        </li>
+      </ul>
+    </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src="w3images/architect.jpg" alt="Architecture" width="1500" height="800">
+    <div class="w3-display-middle w3-margin-top w3-center">
+        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>SHAN</b></span> <span class="w3-hide-small w3-text-light-grey">Portfolio</span></h1>
+        <!-- <img src="assets/fix_logo.png" alt="Fix Logo" width="200" height="200"> -->
+    </div>
+    <div class="cross-pattern top">
+        <!-- Generate multiple cross elements dynamically -->
+        <script>
+            const upper_crossCount = 22; // Specify the number of crosses you want to generate
+
+            for (let index = 0; index < upper_crossCount; index++) {
+                document.write('<div class="cross"></div>');
+            }
+        </script>
+    </div>
+    <div class="cross-pattern bottom" >
+        <!-- Generate multiple cross elements dynamically -->
+        <script>
+            const down_crossCount = 22; // Specify the number of crosses you want to generate
+
+            for (let index = 0; index < down_crossCount; index++) {
+                document.write('<div class="cross"></div>');
+            }
+        </script>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+
+<!-- About Section -->
+<div class="w3-container w3-padding-32" id="about">
+  <!-- w-3 half -->
+  <div class="w3-row-padding">
+    <div class="w3-half image-center">
+      <img class="w3-card" src="assets/e4c1f640-98fe-4660-96d8-ef517479faf6.jpeg" alt="Self-portret" style="width:50%; border-radius: 16px;">
+    </div>
+    <div class="w3-half">
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Over mij</h3>
+      <p>Als huidige student Data Science en AI, combineer ik mijn diepgaande technische kennis met praktijkervaring in helpdeskondersteuning en student-aan-huis diensten. Deze unieke combinatie maakt mij, Shan Oomes, uiterst bekwaam in het aanpakken en oplossen van een breed scala aan ICT-problemen thuis. Mijn studieachtergrond stelt me in staat om complexe technische vraagstukken te begrijpen en te navigeren, van netwerkproblemen tot uitdagingen op het gebied van software- en hardware-ondersteuning, met een snelle en effectieve benadering.</p>
+      <p>Naast mijn technische vaardigheden ben ik ook sterk in communicatie en klantenservice. Ik ben geduldig, vriendelijk en in staat om technische concepten op een begrijpelijke manier uit te leggen aan klanten. Ik streef ernaar om elke klant een uitstekende ervaring te bieden en hen te helpen bij het oplossen van hun ICT-problemen.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Services Section -->
+<div class="w3-container w3-padding-32" id="services">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Services</h3>
+  <p> Bij FIX bieden we een breed scala aan diensten aan en je kunt bij ons terecht met elk digitaal probleem of vraag.
+    Of je nu te maken hebt met een computer die traag opstart, een printer die constant vastloopt, problemen ondervindt bij het installeren van de nieuwste software- en beveiligingsupdates op je tablet of smartphone, of hulp nodig hebt bij het configureren van je nieuwe smart-tv of slimme thermostaat;
+    je bent altijd van harte welkom om contact met ons op te nemen.
+    Deze diensten biedt ik aan:
+  </p>
+  
+  <!-- Grid Section -->
+  <div id="services-grid" class="w3-row-padding">
+    <!-- Services will be loaded here -->
+  </div>
+</div>
+
+<!-- Kosten Section -->
+<div class="w3-container w3-padding-32" id="kosten">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Kosten</h3>
+    <p> De kosten zijn heel simpel en overzichtelijk.
+    </p>
+
+    <div id="pricing-grid" class="w3-row-padding">
+      <div class="spacing">
+        <div class="w3-card w3-padding w3-round-large">
+          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-check"></i> No cure, no pay</h4>
+          <p class="w3-text-grey w3-small">* ALLEEN VOORRIJKOSTEN</p>
+          <p>Geen oplossing = Geen betaling. Je betaalt alleen als het gewenste resultaat wordt behaald. Als er geen succes is, hoef je niet te betalen.</p>
+        </div>
+      </div>
+      <div class="spacing">
+        <div class="w3-card w3-padding w3-round-large">
+          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-comments-dollar"></i> Tarief</h4>
+          <p><i class="fas fa-euro-sign"></i> 5,- Voorrijkosten</p>
+          <p><i class="fas fa-clock"></i> 7,50 Per kwartier</p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Reviews Section -->
+<div class="w3-container w3-padding-32" id="reviews">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Reviews</h3>
+  <div id="reviews-container" class="w3-row-padding">
+    <!-- Reviews will be loaded here -->
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-padding-32" id="contact" style="height: 900px;">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
+  <p>Kom in contact met mij, stel mij al je vragen.</p>
+  <p class="w3-text-grey w3-small">* verplicht</p>
+  <form id="contact-form" action="/submit-form" method="POST">
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <input class="w3-input w3-section w3-border" type="text" id="name" placeholder="Naam*" required name="Naam">
+      </div>
+      <div class="w3-half">
+        <input class="w3-input w3-section w3-border" type="tel" id="phone" placeholder="Telefoonnummer" name="Telefoon">
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-half">
+        <input class="w3-input w3-section w3-border" type="email" id="email" placeholder="Email*" required name="Email">
+      </div>
+      <div class="w3-half">
+        <input class="w3-input w3-section w3-border" type="text" id="subject" placeholder="Onderwerp*" required name="Onderwerp">
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-col">
+        <textarea class="w3-input w3-section w3-border" id="message" placeholder="Bericht*" required name="Bericht" rows="5"></textarea>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-col">
+        <div class="g-recaptcha" data-sitekey="6LfbvGUpAAAAACSEI6_jlqSjWh72TDZpTcc2tF5l"></div>
+      </div>
+    </div>
+    <div class="w3-row-padding">
+      <div class="w3-col">
+        <button class="w3-button w3-black w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> Bericht versturen
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Powered by 
+    <a href="https://shanoomes.nl/" title="Shan" target="_blank" aria-label="Bezoek de website van Shan voor meer informatie over Shan zijn werk">
+      <img src="assets/Logo_Shan_1.svg" alt="Logo Shan" class="w3-card w3-padding w3-round-large" style="width: 135px; height: 60px; background-color: white;">
+    </a>
+  </p>
+</footer>
+
+</body>
+</html>

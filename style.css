@@ -1,0 +1,107 @@
+/* Side bar */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    transition: right 0.5s ease;
+    z-index: 5;
+}
+.slide-in {
+        right: 0;
+}
+
+.sidebar-container {
+    background-color: #a19d9db6;
+    padding: 10px;
+    border-radius: 8px 0 0 8px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+/* Cross-pattern style */
+.cross-pattern.top {
+    position: absolute;
+    top: 8%;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+    grid-gap: 1em;
+    pointer-events: auto;
+}
+
+.cross-pattern.bottom {
+    position: absolute;
+    bottom: 6%;
+    left: 0;
+    width: 100%;
+    /* Adjust height to cover only the intended bottom area */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+    grid-gap: 1em;
+    pointer-events: auto;
+}
+
+.cross {
+    content: "";
+    width: 8em;
+    height: 8em;
+    background-image: url(assets/cross.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.3s ease;
+}
+
+.cross:hover {
+    transform: rotate(90deg);
+}
+
+/* Hide cross pattern on small screens */
+@media (max-width: 1489px) {
+    .cross-pattern.top{
+        display: none;
+    }
+    .cross-pattern.bottom{
+        display: none;
+    }
+}
+
+/* Service grid styling */
+
+#services-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.spacing {
+    flex: 1;
+    min-width: 400px; /* Adjust the min-width as needed */
+    margin: 18px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .spacing {
+        flex: 1 1 100%; /* On small screens, take full width */
+        min-width: 0; /* Override min-width to allow full width on small screens */
+    }
+}
+
+#pricing-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
