@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Ensure this matches your actual sections' IDs.
-    const sections = ['#navbar', '#services', '#kosten', '#reviews', '#contact'];
+    const sections = ['#navbar', '#about', '#projects', '#contact'];
 
     function changeIconColor() {
         sections.forEach((sectionId) => {
