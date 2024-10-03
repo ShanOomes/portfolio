@@ -39,24 +39,26 @@
 
 <body>
 
-<!-- Horizontal scrolling text -->
-<div class="container" style="height: 30px; overflow: hidden;">
-  <marquee behavior="scroll" direction="left">
-      <p class="marquee-text" style="margin: 0; line-height: 30px;">Portfolio - Shan Oomes - Student Data Science & AI</p>
-  </marquee>
-</div>
-
 <!-- Navbar (sit on top) -->
 <div id="navbar">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <a href="#home" class="w3-bar-item w3-button" onclick="smoothScroll('#home', event)" aria-label="Home"><img src="assets/Logo Shan.svg" alt="Self-portret" style="width:50%;"></a>
-        <!-- Float links to the right. Hide them on small screens -->
-        <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me">About me</a>
-            <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on">Projects</a>
-            <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me">Contact</a>
-        </div>
-    </div>
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card" style="position: relative;">
+      <!-- Scrolling Text Inside Navbar -->
+      <div class="scrolling-text" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 30px; overflow: hidden; border-bottom: 1px solid black;">
+          <marquee behavior="scroll" direction="left">
+              <p class="marquee-text" style="margin: 0; line-height: 30px;">Portfolio - Shan Oomes - Student Data Science & AI</p>
+          </marquee>
+      </div>
+      <!-- Logo and Navbar Links -->
+      <a href="#home" class="w3-bar-item w3-button" onclick="smoothScroll('#home', event)" aria-label="Home" style="margin-top: 30px;">
+          <img src="assets/Logo Shan.svg" alt="Self-portret" style="width:50%;">
+      </a>
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small" style="margin-top: 30px;">
+          <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me">About me</a>
+          <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on">Projects</a>
+          <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me">Contact</a>
+      </div>
+  </div>
 </div>
 
 <div class="sidebar">
