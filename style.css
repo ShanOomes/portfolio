@@ -195,3 +195,18 @@
     font-family: 'IBM Plex Mono', monospace;
   }
   
+    /* Hover button */
+.hover-button {
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Padding around text */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Change cursor on hover */
+    text-decoration: none; /* Remove underline */
+    transition: text-decoration 0.3s; /* Smooth transition */
+}
+
+.hover-button:hover {
+    text-decoration: underline; /* Underline text on hover */
+    background-color: rgba(165, 165, 165, 0.429);
+    border-radius: 8px;
+}

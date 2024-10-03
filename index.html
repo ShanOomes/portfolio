@@ -39,15 +39,22 @@
 
 <body>
 
+<!-- Horizontal scrolling text -->
+<div class="container" style="height: 30px; overflow: hidden;">
+  <marquee behavior="scroll" direction="left">
+      <p class="marquee-text" style="margin: 0; line-height: 30px;">Portfolio - Shan Oomes - Student Data Science & AI</p>
+  </marquee>
+</div>
+
 <!-- Navbar (sit on top) -->
 <div id="navbar">
     <div class="w3-bar w3-white w3-wide w3-padding w3-card">
         <a href="#home" class="w3-bar-item w3-button" onclick="smoothScroll('#home', event)" aria-label="Home"><img src="assets/Logo Shan.svg" alt="Self-portret" style="width:50%;"></a>
         <!-- Float links to the right. Hide them on small screens -->
         <div class="w3-right w3-hide-small">
-            <a href="#about" class="w3-bar-item w3-button" onclick="smoothScroll('#about', event)" aria-label="Meer leren over onze diensten">About</a>
-            <a href="#projects" class="w3-bar-item w3-button" onclick="smoothScroll('#projects', event)" aria-label="Meer leren over onze diensten">Projects</a>
-            <a href="#contact" class="w3-bar-item w3-button" onclick="smoothScroll('#contact', event)" aria-label="Neem contact met ons op voor meer informatie">Contact</a>
+            <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me">About me</a>
+            <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on">Projects</a>
+            <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me">Contact</a>
         </div>
     </div>
 </div>
@@ -56,16 +63,16 @@
     <div class="sidebar-container">
       <ul>
         <li class="icon-container">
-          <a href="#navbar" class="w3-bar-item w3-button" onclick="smoothScroll('#navbar', event)" aria-label="Home"><span class="icon-container"><i class="fas fa-house"></i></span></a>
+          <a href="#navbar" class="w3-bar-item hover-button" onclick="smoothScroll('#navbar', event)" aria-label="Home"><span class="icon-container"><i class="fas fa-house"></i></span></a>
         </li>
         <li class="icon-container">
-          <a href="#about" class="w3-bar-item w3-button" onclick="smoothScroll('#about', event)" aria-label="Informatie krijgen over kosten"><span class="icon-container"><i class="fas fa-user"></i></span></a>
+          <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me"><span class="icon-container"><i class="fas fa-user"></i></span></a>
         </li>
         <li class="icon-container">
-            <a href="#projects" class="w3-bar-item w3-button" onclick="smoothScroll('#projects', event)" aria-label="Informatie krijgen over kosten"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
+            <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
         </li>
         <li class="icon-container">
-            <a href="#contact" class="w3-bar-item w3-button" onclick="smoothScroll('#contact', event)" aria-label="Neem contact met ons op voor meer informatie"><span class="icon-container"><i class="fas fa-envelope"></i></span></a>
+            <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me"><span class="icon-container"><i class="fas fa-envelope"></i></span></a>
         </li>
       </ul>
     </div>
@@ -112,7 +119,7 @@
       <img class="w3-card" src="assets/e4c1f640-98fe-4660-96d8-ef517479faf6.jpeg" alt="Self-portret" style="width:50%; border-radius: 16px;">
     </div>
     <div class="w3-half">
-      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Over mij</h3>
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About me</h3>
       <p>As a current Data Science and AI student, I combine a solid foundation in technical knowledge with a passion for innovation in artificial intelligence. My academic journey, which includes a background in game development and professional experience in web development, has given me a diverse set of skills that allows me to tackle complex challenges across multiple domains. From data analysis and machine learning to the creation of intelligent systems, I, Shan Oomes, am deeply focused on applying AI techniques to solve real-world problems, while continually exploring new frontiers in automation, data-driven decision-making, and algorithmic efficiency.</p>
       <p>My experience in game development has sharpened my problem-solving and creative thinking skills, while my professional work in web development has enhanced my understanding of how to build scalable, user-friendly solutions. This unique combination of fields enables me to bring a fresh perspective to AI, blending creativity, technical precision, and user-centered design in every project.</p>
       <p>Driven by a constant desire for growth and new challenges, I thrive in dynamic environments where innovation is key. My goal is to stay at the forefront of AI advancements, always seeking opportunities to expand my knowledge and contribute to the transformative potential of artificial intelligence, while drawing on my diverse background to push the boundaries of what's possible.</p>
@@ -131,7 +138,7 @@
         <div class="w3-card w3-padding w3-round-large">
           <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-check"></i> Banijay</h4>
           <p class="w3-text-grey w3-small">* ALLEEN VOORRIJKOSTEN</p>
-          <p>Geen oplossing = Geen betaling. Je betaalt alleen als het gewenste resultaat wordt behaald. Als er geen succes is, hoef je niet te betalen.</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
       </div>
       <div class="spacing">
@@ -139,6 +146,7 @@
           <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-comments-dollar"></i> Natureal language processing (NLP)</h4>
           <p><i class="fas fa-euro-sign"></i> 5,- Voorrijkosten</p>
           <p><i class="fas fa-clock"></i> 7,50 Per kwartier</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
       </div>
     </div>
@@ -148,7 +156,7 @@
         <div class="w3-card w3-padding w3-round-large">
           <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-check"></i> NPEC, computer vision</h4>
           <p class="w3-text-grey w3-small">* ALLEEN VOORRIJKOSTEN</p>
-          <p>Geen oplossing = Geen betaling. Je betaalt alleen als het gewenste resultaat wordt behaald. Als er geen succes is, hoef je niet te betalen.</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
       </div>
       <div class="spacing">
@@ -156,6 +164,7 @@
           <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-comments-dollar"></i> Move Intermodal, logistics</h4>
           <p><i class="fas fa-euro-sign"></i> 5,- Voorrijkosten</p>
           <p><i class="fas fa-clock"></i> 7,50 Per kwartier</p>
+          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
       </div>
     </div>
@@ -195,7 +204,7 @@
     </div>
     <div class="w3-row-padding">
       <div class="w3-col">
-        <button class="w3-button w3-black w3-section" type="submit">
+        <button class="hover-button w3-black w3-section" type="submit">
           <i class="fa fa-paper-plane"></i> Bericht versturen
         </button>
       </div>
