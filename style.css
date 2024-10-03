@@ -191,7 +191,7 @@
     font-style: italic;
   }
 
-  body {
+  body, h1 {
     font-family: 'IBM Plex Mono', monospace;
   }
   
