@@ -211,18 +211,33 @@
     border-radius: 8px;
 }
 
-.container {
+.flex-container {
   display: flex;
-  align-items: center; /* Aligns items vertically (centered) */
-  gap: 10px; /* Optional: adds space between items */
+  flex-direction: row; /* Default: two columns (items in a row) */
+  gap: 20px; /* Adds space between items */
+  justify-content: space-between; /* Distributes space between the items */
 }
 
-.item {
-  background-color: rgb(215, 213, 213);
-  padding: 15px 20px;
-
+.flex-item {
+  flex: 50%; /* Makes items take 50% width, minus the gap */
+  box-sizing: border-box; /* Includes padding and borders in width calculations */
+  padding: 10px; /* Optional padding for items */
+  background-color: lightgray; /* Background color for visual distinction */
   border-radius: 8px;
 }
+
+/* Responsive layout - switches to one column layout for smaller screens */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column; /* Stacks items in a column */
+  }
+
+  .flex-item {
+    flex: 1 1 100%; /* Each item takes full width */
+  }
+}
+
+
 
 .hidden {
   opacity: 0;
