@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 });
             }, {
-                rootMargin: '0px',
-                threshold: 0.5 // Adjust if needed to ensure the icon changes color as desired
+                rootMargin: '0px 0px -50% 0px', // Adjust bottom margin to account for large items
+                threshold: 0.1 // Lower threshold to ensure the icon changes color as desired
             });
             
             observer.observe(section);
