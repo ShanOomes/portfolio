@@ -210,3 +210,48 @@
     background-color: rgba(165, 165, 165, 0.429);
     border-radius: 8px;
 }
+
+.container {
+  display: flex;
+  align-items: center; /* Aligns items vertically (centered) */
+  gap: 10px; /* Optional: adds space between items */
+}
+
+.item {
+  background-color: rgb(215, 213, 213);
+  padding: 15px 20px;
+
+  border-radius: 8px;
+}
+
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transition: all 2s;
+}
+
+.show {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* Default animation direction (e.g., from the left) */
+[data-direction="left"].hidden {
+  transform: translateX(-100%);
+}
+[data-direction="right"].hidden {
+  transform: translateX(100%);
+}
+[data-direction="up"].hidden {
+  transform: translateY(-100%);
+}
+[data-direction="down"].hidden {
+  transform: translateY(100%);
+}
+
+[data-direction="left"].show,
+[data-direction="right"].show,
+[data-direction="up"].show,
+[data-direction="down"].show {
+  transform: translate(0);
+}

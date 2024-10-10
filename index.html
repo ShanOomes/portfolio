@@ -14,6 +14,7 @@
   <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="script.js"></script>
+  <script defer src="app.js"></script>
 
   <!-- reCAPTCHA -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
@@ -116,11 +117,11 @@
 <!-- About Section -->
 <div class="w3-container w3-padding-32" id="about">
   <!-- w-3 half -->
-  <div class="w3-row-padding">
-    <div class="w3-half image-center">
+  <div class="w3-row-padding w3-display-container" style="display: flex; align-items: center;">
+    <div class="w3-half image-center hidden" data-direction="left" style="display: flex; justify-content: center; align-items: center;">
       <img class="w3-card" src="assets/e4c1f640-98fe-4660-96d8-ef517479faf6.jpeg" alt="Self-portret" style="width:50%; border-radius: 16px;">
     </div>
-    <div class="w3-half">
+    <div class="w3-half hidden" data-direction="right">
       <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About me</h3>
       <p>As a current Data Science and AI student, I combine a solid foundation in technical knowledge with a passion for innovation in artificial intelligence. My academic journey, which includes a background in game development and professional experience in web development, has given me a diverse set of skills that allows me to tackle complex challenges across multiple domains. From data analysis and machine learning to the creation of intelligent systems, I, Shan Oomes, am deeply focused on applying AI techniques to solve real-world problems, while continually exploring new frontiers in automation, data-driven decision-making, and algorithmic efficiency.</p>
       <p>My experience in game development has sharpened my problem-solving and creative thinking skills, while my professional work in web development has enhanced my understanding of how to build scalable, user-friendly solutions. This unique combination of fields enables me to bring a fresh perspective to AI, blending creativity, technical precision, and user-centered design in every project.</p>
@@ -128,6 +129,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Projects Section -->
 <div class="w3-container w3-padding-32" id="projects">
@@ -137,35 +139,96 @@
 
     <div id="projects-grid" class="w3-row-padding">
       <div class="spacing">
-        <div class="w3-card w3-padding w3-round-large">
-          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-check"></i> Banijay</h4>
-          <p class="w3-text-grey w3-small">* ALLEEN VOORRIJKOSTEN</p>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        <div class="w3-card w3-padding w3-round-large hidden" data-direction="left">
+          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Automated Plant Phenotyping with Computer Vision and Robotics</h2>
+          <div class="container">
+            <div class="item"><i class="fas fa-computer"></i> Machine Learning</div>
+            <div class="item"><i class="fas fa-robot"></i> Robotics</div>
+            <div class="item"><i class="fas fa-eye"></i> Computer Vision</div>
+            <div class="item"><i class="fas fa-seedling"></i> Plant Phenotyping</div>
+            <div class="item"><a href="#test" class="w3-bar-item hover-button" aria-label="Get in touch with me"><i class="fa-brands fa-github"></i></a></div>
+          </div>
+          <div style="margin-top: 40px;">
+            <p>For this project, I worked in collaboration with the Netherlands Plant Eco-phenotyping Center (NPEC), through my association with Breda University of Applied Sciences. The project's primary objective was to revolutionize plant phenotyping by integrating computer vision and robotics to enhance plant root analysis and improve automation in precision inoculation.</p>
+    
+            <p>To address plant phenotyping challenges, computer vision techniques were employed to isolate Petri dishes from background noise and perform semantic segmentation of plant components like seeds, shoots, and roots. With a refined and preprocessed dataset, I developed a machine learning model capable of accurately predicting masks for different plant structures. This allowed for instance segmentation, which identified individual plants in the images and facilitated detailed measurements, such as root length and the precise localization of root tips—a critical step in assessing plant growth and traits.</p>
+    
+            <p>In parallel with the computer vision work, the robotics aspect of the project focused on automating the delivery of inoculants to the identified plant root tips. I simulated and developed a precision liquid handling robot that was programmed using a PID controller for accurate liquid dispensing. The robot was integrated with the computer vision system, enabling it to locate and deliver the liquid to targeted areas on the Petri dish. This demonstrated how vision-based analysis could be seamlessly combined with robotic automation, allowing for precise interventions in plant phenotyping experiments.</p>
+    
+            <p>Additionally, I incorporated reinforcement learning to enhance the robot’s navigation and precision. By designing appropriate reward functions and conducting hyperparameter tuning, I ensured that the robot could autonomously navigate to the correct root tips for liquid delivery. The integration of reinforcement learning further improved the system's efficiency, as the robot learned to optimize its path and actions based on real-time feedback.</p>
+    
+            <div class="section-title">Key Findings:</div>
+            <ul>
+                <li>The computer vision model was able to achieve high accuracy in isolating plant structures, particularly roots, enabling more efficient plant trait analysis.</li>
+                <li>The liquid handling robot demonstrated precise inoculation capabilities when integrated with vision-based localization, enhancing automation in plant phenotyping.</li>
+                <li>Reinforcement learning significantly improved the robot’s precision in liquid delivery, ensuring accurate targeting of plant root tips.</li>
+                <li>The combination of machine learning, computer vision, and robotics proved to be an effective approach for automated plant phenotyping.</li>
+            </ul>
+    
+            <p>The project culminated in a comprehensive technical report, which documented the methodologies used for dataset acquisition and preprocessing, and detailed the computer vision and robotics pipelines. The report included a flowchart that depicted the overall workflow and performance metrics that evaluated the accuracy of root segmentation, robot precision, and the effectiveness of reinforcement learning in task execution.</p>
+    
+            <div class="section-title">Skills Gained:</div>
+            <ul>
+                <li><strong>Robotics</strong> – Developed and simulated a robot with a PID controller for precise inoculation tasks.</li>
+                <li><strong>Computer Vision</strong> – Applied segmentation techniques to isolate plant structures, enabling accurate plant root phenotyping.</li>
+                <li><strong>Reinforcement Learning</strong> – Crafted reward functions and optimized RL models for autonomous robot navigation and liquid delivery.</li>
+                <li><strong>Machine Learning</strong> – Built predictive models for plant segmentation and collaborated on enhancing robotics through ML integration.</li>
+            </ul>
+    
+            <p>The outcomes of this project demonstrated the successful synergy between computer vision and robotics, advancing automated plant phenotyping. The technical report and findings offered a valuable contribution to NPEC's goal of improving plant analysis through AI technologies.</p>
         </div>
       </div>
+      </div>
       <div class="spacing">
-        <div class="w3-card w3-padding w3-round-large">
-          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-comments-dollar"></i> Natureal language processing (NLP)</h4>
-          <p><i class="fas fa-euro-sign"></i> 5,- Voorrijkosten</p>
-          <p><i class="fas fa-clock"></i> 7,50 Per kwartier</p>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+        <div class="w3-card w3-padding w3-round-large hidden" data-direction="left">
+          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Emotion Classification with Machine Learning</h2>
+          <div class="container">
+            <div class="item"><i class="fas fa-comments"></i> Natural Language Processing (NLP)</div>
+            <div class="item"><i class="fas fa-computer"></i> Machine Learning</div>
+            <div class="item"><i class="fas fa-face-smile"></i> Emotion Classification</div>
+            <div class="item"><a href="#test" class="w3-bar-item hover-button" aria-label="Get in touch with me"><i class="fa-brands fa-github"></i></a></div>
+          </div>
+          <div style="margin-top: 40px;">
+            <p>For this group project, my team and I collaborated with Banijay, in association with Breda University of Applied Sciences, to develop an emotion classification system utilizing natural language processing (NLP) and machine learning models. The objective was to analyze video content, detecting and classifying emotions to enhance the content's emotional impact and insights.</p>
+    
+            <p>The data preprocessing involved cleaning text data using regular expressions, and normalizing it through tokenization and stemming techniques. Word embeddings were then used to represent words as vectors, enabling the integration of these vectors into machine learning models. Additional feature extraction methods like TF-IDF and Part-of-Speech (POS) tagging were applied. A custom word embedding model, trained on our project-specific corpus, was incorporated to enhance emotion classification accuracy.</p>
+    
+            <p>We experimented with multiple models for emotion classification. Initial models were developed using Naïve Bayes and Logistic Regression algorithms. Further sophistication was added with sequence models such as Recurrent Neural Networks (RNN), XGBoost, and Long Short-Term Memory (LSTM) networks, each contributing to an improved understanding of emotional cues in text.</p>
+    
+            <p>A robust pipeline was developed to break down video content into fragments, extract text from these fragments, and predict emotions for each segment. To ensure optimal performance, we tested transformer models using Hugging Face, selecting RoBERTa as the core model. RoBERTa was fine-tuned on the dataset and achieved high accuracy in emotion classification.</p>
+    
+            <p>Comprehensive model evaluation was performed using metrics such as accuracy, precision, recall, and F1-score. Through error analysis, we identified areas for improvement, balancing performance metrics to select the most effective model. The process and results were documented in a detailed technical report, showcasing the methodologies and findings.</p>
+    
+            <div class="section-title">Key Findings:</div>
+            <ul>
+                <li>RoBERTa outperformed other models in emotion classification, achieving significant accuracy improvements after fine-tuning on the project-specific dataset.</li>
+                <li>Data preprocessing and feature extraction were critical in improving model performance, with POS tagging and word embeddings contributing to enhanced emotion detection.</li>
+                <li>The pipeline's automated process for splitting video and extracting text enabled efficient emotion classification across various video content.</li>
+                <li>Combining traditional algorithms with advanced transformer models provided a deeper understanding and classification of emotions in media content.</li>
+            </ul>
+    
+            <div class="section-title">Skills Gained:</div>
+            <ul>
+                <li><strong>Transformer Models</strong> – Implemented and fine-tuned transformer models, specifically RoBERTa, for NLP tasks.</li>
+                <li><strong>Performance Metrics Analysis</strong> – Evaluated models using accuracy, precision, recall, and F1-score.</li>
+                <li><strong>Feature Engineering</strong> – Applied techniques such as tokenization, TF-IDF, and POS tagging for improved model performance.</li>
+                <li><strong>Natural Language Processing (NLP)</strong> – Developed emotion classification models using advanced NLP techniques.</li>
+                <li><strong>Model Evaluation</strong> – Conducted comprehensive model performance assessments and error analyses.</li>
+            </ul>
+    
+            <p>The project provided Banijay with a robust tool for analyzing emotional content in their video assets, offering actionable insights to enhance viewer engagement through AI-driven emotion classification.</p>
+        </div>
         </div>
       </div>
     </div>
 
     <div id="projects-grid" class="w3-row-padding">
       <div class="spacing">
-        <div class="w3-card w3-padding w3-round-large">
-          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-check"></i> NPEC, computer vision</h4>
-          <p class="w3-text-grey w3-small">* ALLEEN VOORRIJKOSTEN</p>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
-        </div>
-      </div>
-      <div class="spacing">
-        <div class="w3-card w3-padding w3-round-large">
-          <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-comments-dollar"></i> Move Intermodal, logistics</h4>
-          <p><i class="fas fa-euro-sign"></i> 5,- Voorrijkosten</p>
-          <p><i class="fas fa-clock"></i> 7,50 Per kwartier</p>
+        <div class="w3-card w3-padding w3-round-large hidden" data-direction="left">
+          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Move Intermodal, logistics</h2>
+          <div class="container">
+            <div class="item"><i class="fas fa-computer"></i> Machine Learning</div>
+          </div>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
         </div>
       </div>
