@@ -1,3 +1,3 @@
 # My Portfolio webpage
 
-![FIX_logo_B](https://github.com/ShanOomes/portfolio/assets/Logo_Shan_1.svg)
+![FIX logo](https://raw.githubusercontent.com/ShanOomes/portfolio/main/assets/Logo_Shan_1.svg)
