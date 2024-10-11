@@ -117,3 +117,21 @@ function formatDate(dateString) {
     const year = date.getFullYear();
     return `${day}-${month}-${year}`;
 }
+
+document.addEventListener("scroll", function() {
+    const image = document.getElementById('scrolling-image');
+    const scrollPosition = window.scrollY; // Get current scroll position
+    const maxScroll = document.body.scrollHeight - window.innerHeight; // Maximum scrollable distance
+    const containerWidth = window.innerWidth; // Width of the viewport
+
+    const scalingFactor = 1; // Adjust this value to change how far the image moves
+
+    // Calculate the position of the image based on the scroll percentage and the scaling factor
+    const scrollPercentage = scrollPosition / maxScroll; 
+    const imagePosition = (scrollPercentage * (containerWidth + image.offsetWidth)) * scalingFactor;
+
+    // Update the image position as the user scrolls
+    image.style.left = -image.offsetWidth + imagePosition + 'px'; // Start the image off-screen
+});
+
+
