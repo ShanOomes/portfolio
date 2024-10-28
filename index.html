@@ -138,7 +138,16 @@
     </p>
 
     <div id="projects-grid" class="w3-row-padding">
-      <div class="spacing">
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button onclick="filterProjects('all')">Show All</button>
+        <button onclick="filterProjects('machine-learning')">Machine Learning</button>
+        <button onclick="filterProjects('robotics')">Robotics</button>
+        <button onclick="filterProjects('nlp')">NLP</button>
+        <button onclick="filterProjects('emotion-classification')">Emotion Classification</button>
+      </div>
+
+      <div class="spacing machine-learning robotics plant-phenotyping">
         <div class="w3-card w3-padding w3-round-large">
           <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Automated Plant Phenotyping with Computer Vision and Robotics</h2>
           <div class="flex-container">
@@ -176,10 +185,10 @@
             </ul>
     
             <p>The outcomes of this project demonstrated the successful synergy between computer vision and robotics, advancing automated plant phenotyping. The technical report and findings offered a valuable contribution to NPEC's goal of improving plant analysis through AI technologies.</p>
+          </div>
         </div>
       </div>
-      </div>
-      <div class="spacing">
+      <div class="spacing machine-learning nlp emotion-classification">
         <div class="w3-card w3-padding w3-round-large">
           <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Emotion Classification with Machine Learning</h2>
           <div class="flex-container">
@@ -217,13 +226,11 @@
             </ul>
     
             <p>The project provided Banijay with a robust tool for analyzing emotional content in their video assets, offering actionable insights to enhance viewer engagement through AI-driven emotion classification.</p>
-        </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div id="projects-grid" class="w3-row-padding">
-      <div class="spacing">
+      <div class="spacing logistics">
         <div class="w3-card w3-padding w3-round-large">
           <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Move Intermodal, logistics</h2>
           <div class="container">
@@ -233,6 +240,7 @@
         </div>
       </div>
     </div>
+
 </div>
 
 <!-- Contact Section -->

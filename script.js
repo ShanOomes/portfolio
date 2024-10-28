@@ -134,4 +134,23 @@ document.addEventListener("scroll", function() {
     image.style.left = -image.offsetWidth + imagePosition + 'px'; // Start the image off-screen
 });
 
-
+function filterProjects(category) {
+    // Get all the project cards
+    let projects = document.querySelectorAll('#projects-grid .spacing');
+    
+    // Loop through all project cards
+    projects.forEach(project => {
+      // If the category is 'all', show all projects
+      if (category === 'all') {
+        project.style.display = 'block';
+      } else {
+        // Otherwise, check if the project has the category class
+        if (project.classList.contains(category)) {
+          project.style.display = 'block';
+        } else {
+          project.style.display = 'none';
+        }
+      }
+    });
+  }
+  
