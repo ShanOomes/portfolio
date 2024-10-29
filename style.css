@@ -287,3 +287,49 @@
   transform: translateY(-50%); /* Vertically center the image */
 }
 
+.mnb {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.mnb > div {
+  flex: 1 1 45%; /* Ensures the divs take 45% of the width on larger screens */
+  max-width: 45%; /* Max width for larger screens */
+  min-width: 300px; /* Ensures a minimum size for smaller screens */
+  padding: 10px;
+  box-sizing: border-box; /* Ensures padding doesn't break the layout */
+}
+
+.w3-padding {
+  padding: 16px;
+}
+
+.w3-card {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow to the card */
+}
+
+.w3-round-large {
+  border-radius: 16px;
+}
+
+img {
+  width: 100%; /* Image takes up full width of its container */
+  max-width: 100%; /* Ensures image doesn't overflow */
+  border-radius: 16px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+  .mnb {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .mnb > div {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 100%;
+  }
+}
