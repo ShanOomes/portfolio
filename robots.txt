@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shanoomes220231.github.io/portfolio/sitemap.xml
