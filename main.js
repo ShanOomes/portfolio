@@ -50,6 +50,10 @@
 
   function openMobileMenu() {
     if (!hamburger || !mobileMenu) return;
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      mobileMenu.style.top = navbar.getBoundingClientRect().bottom + 'px';
+    }
     hamburger.classList.add('is-open');
     hamburger.setAttribute('aria-expanded', 'true');
     mobileMenu.classList.add('is-open');
@@ -183,6 +187,39 @@
 
   if (cvBackdrop) {
     cvBackdrop.addEventListener('click', closeCvModal);
+  }
+
+
+  /* ----------------------------------------------------------
+     SMOOTH STICKY ABOUT PHOTO
+     Replaces position:sticky with a lerp-driven translateY so
+     the photo eases to its resting position instead of snapping.
+  ---------------------------------------------------------- */
+
+  const aboutPhotoWrap = document.querySelector('.about__photo-wrap');
+  const aboutPhotoCol  = document.querySelector('.about__photo-col');
+
+  if (aboutPhotoWrap && aboutPhotoCol) {
+    var smoothY = 0;
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function updateAboutPhoto() {
+      var colRect   = aboutPhotoCol.getBoundingClientRect();
+      var navOffset = getStickyOffset() + 16;
+      var maxY      = colRect.height - aboutPhotoWrap.offsetHeight;
+      var rawY      = Math.max(0, Math.min(maxY, navOffset - colRect.top));
+      var progress  = maxY > 0 ? rawY / maxY : 0;
+      var target    = easeInOut(progress) * maxY;
+
+      smoothY += (target - smoothY) * 0.15;
+      aboutPhotoWrap.style.transform = 'translateY(' + smoothY.toFixed(2) + 'px)';
+      requestAnimationFrame(updateAboutPhoto);
+    }
+
+    requestAnimationFrame(updateAboutPhoto);
   }
 
 

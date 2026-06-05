@@ -159,19 +159,26 @@
 
 /* Mobile nav overlay */
 .navbar__mobile-menu {
-  display: none;
+  display: block;
   position: fixed;
-  top: calc(var(--bar-height) + var(--navbar-height));
+  top: 0;
   left: 0;
   right: 0;
   background-color: var(--color-white);
   border-bottom: var(--border);
   padding: var(--space-4);
   z-index: var(--z-overlay);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px) scale(0.98);
+  transition: transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 320ms var(--ease-out);
 }
 
 .navbar__mobile-menu.is-open {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
 }
 
 .navbar__mobile-links {
@@ -427,14 +434,13 @@
   display: grid;
   grid-template-columns: 1fr 1.6fr;
   gap: var(--space-10);
-  align-items: start;
 }
 
 .about__photo-wrap {
-  position: sticky;
-  top: calc(var(--bar-height) + var(--navbar-height) + var(--space-4));
+  position: relative;
   aspect-ratio: var(--ratio-square);
   overflow: hidden;
+  will-change: transform;
 }
 
 .about__photo {
@@ -449,6 +455,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+}
+
+.about__text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
 }
 
 .about__text {
@@ -1406,7 +1418,6 @@
    preventing a flash on first paint */
 [data-theme] body,
 [data-theme] .navbar,
-[data-theme] .navbar__mobile-menu,
 [data-theme] .announcement-bar,
 [data-theme] .hero,
 [data-theme] section,
@@ -1511,6 +1522,14 @@
 ============================================================ */
 
 /* Mobile nav menu */
+[data-theme] .navbar__mobile-menu {
+  transition: background-color 300ms ease,
+              border-color 300ms ease,
+              color 200ms ease,
+              transform 460ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 320ms var(--ease-out);
+}
+
 [data-theme="dark"] .navbar__mobile-menu {
   background-color: var(--color-bg);
 }
