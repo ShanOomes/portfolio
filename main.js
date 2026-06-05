@@ -143,14 +143,17 @@
   const cvTrigger  = document.querySelector('.cv-trigger');
   const cvClose    = document.querySelector('.cv-modal__close');
   const cvBackdrop = document.querySelector('.cv-modal__backdrop');
+  let cvHideTimer = null;
 
   function openCvModal() {
     if (!cvModal) return;
+    if (cvHideTimer) {
+      clearTimeout(cvHideTimer);
+      cvHideTimer = null;
+    }
     cvModal.removeAttribute('hidden');
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        cvModal.classList.add('is-open');
-      });
+      cvModal.classList.add('is-open');
     });
     cvModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -162,9 +165,11 @@
     cvModal.classList.remove('is-open');
     cvModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(function () {
+    if (cvHideTimer) clearTimeout(cvHideTimer);
+    cvHideTimer = setTimeout(function () {
       cvModal.setAttribute('hidden', '');
-    }, 420);
+      cvHideTimer = null;
+    }, 460);
     if (cvTrigger) cvTrigger.focus();
   }
 

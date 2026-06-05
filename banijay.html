@@ -28,7 +28,7 @@
   </div>
 
   <header class="navbar">
-    <div class="navbar__inner container">
+    <div class="navbar__inner">
       <a href="index.html" class="navbar__logo">Shan Oomes</a>
       <nav class="navbar__links" aria-label="Primary navigation">
         <a href="index.html#work"    class="navbar__link">Work</a>
@@ -37,13 +37,41 @@
         <a href="index.html#writing" class="navbar__link">Writing</a>
         <a href="index.html#contact" class="navbar__link">Contact</a>
       </nav>
-      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+      <button
+        class="theme-toggle"
+        aria-pressed="false"
+        aria-label="Switch to dark mode"
+        type="button"
+      >
         <span class="theme-toggle__track">
-          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
-          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--a">
+            <svg class="theme-toggle__svg theme-toggle__svg--sun" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+            <svg class="theme-toggle__svg theme-toggle__svg--moon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="theme-toggle__circle theme-toggle__circle--b">
+            <svg class="theme-toggle__svg theme-toggle__svg--moon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <svg class="theme-toggle__svg theme-toggle__svg--sun" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </span>
         </span>
       </button>
-      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+
+      <button
+        class="navbar__hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        type="button"
+      >
         <span class="navbar__hamburger-bar"></span>
         <span class="navbar__hamburger-bar"></span>
         <span class="navbar__hamburger-bar"></span>
@@ -51,7 +79,7 @@
     </div>
   </header>
 
-  <div class="navbar__mobile-menu" aria-hidden="true">
+  <div class="navbar__mobile-menu" id="mobile-menu" aria-hidden="true">
     <nav>
       <a href="index.html#work"    class="navbar__mobile-link">Work</a>
       <a href="index.html#about"   class="navbar__mobile-link">About</a>

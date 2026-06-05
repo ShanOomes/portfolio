@@ -53,19 +53,42 @@ Source-of-truth for all copy on the site. Update here first, then update the HTM
 
 ### Experience
 
-**2023 – 2024 · Data Science Intern — Equans**
-Designed and built AIDA, a Retrieval-Augmented Generation system for engineering documentation. Integrated Azure Form Recognizer, SBERT embeddings, and a SharePoint-connected knowledge base.
+**February 2025 – August 2025 · Stagaire Data Analyse — ABN AMRO Meespierson**
+Developed dashboards and performed client data analyses for wealth management clients within a multidisciplinary team. Reported findings and recommendations to senior management to support data-driven decision-making in private banking.
+Tools: Power BI, SQL, Python.
+Knowledge: data analysis, dashboarding, stakeholder reporting.
 
-**2022 – 2023 · Junior Data Analyst — ABN AMRO (part-time)**
-Supported the analytics team with SQL reporting and Python-based data pipelines for internal risk dashboards.
+**September 2023 – December 2024 · Vestigingsassistent — PIDZ Best**
+Responsible for onboarding new independent healthcare professionals. Assessed qualifications, education, and background information as part of a structured verification process.
+Tools: onboarding systems, review workflows.
+Knowledge: compliance, screening, process discipline.
 
-**2021 – 2022 · Freelance Developer — Flexpulse**
-Built and maintained PHP/MySQL web applications for logistics clients. Delivered custom reporting tools and REST API integrations.
+**September 2020 – Current · Lid van ICT Commissie — T.S.G.V. Under Par**
+Managed all ICT matters for the golf student association, including maintaining the WordPress website.
+Tools: WordPress, website admin.
+Knowledge: site maintenance, ICT support, content updates.
+
+**March 2020 – May 2023 · Junior programmeur — Flexpulse rijschoolsoftware**
+Programmed new features and functions for the SaaS system, working across front-end and back-end layers to improve and optimise the platform.
+Tools: Python, PHP, SQL.
+Knowledge: SaaS development, front-end, back-end.
+
+**July 2022 – August 2022 · Retail medewerker — Amac Tilburg**
+Helped customers with service, sales, and product advice around Apple products and accessories.
+Tools: sales systems, customer support.
+Knowledge: upselling, product knowledge, communication.
+
+**August 2020 – January 2021 · Stage – XR specialist — Twisted creative content agency Eindhoven**
+Worked on mixed reality and virtual reality projects with Unity and Unreal Engine, with a focus on iOS app development.
+Tools: Unity, Unreal Engine, iOS.
+Knowledge: MR/VR, interactive experiences, prototyping.
 
 ### Education
 
-**2021 – 2025 · BSc Data Science & AI — Breda University of Applied Sciences**
-Specialisation in NLP and applied machine learning. Graduation project: AIDA document intelligence system at Equans.
+**Sept 2022 – Jun 2026 · Data Science & AI — Breda University of Applied Sciences**
+Academic focus on applied AI, data analysis, and building systems that connect models with real-world workflows.
+Focus: NLP, applied machine learning, data analysis.
+Project: AIDA document intelligence system at Equans.
 
 ---
 
