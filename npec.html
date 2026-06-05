@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plant Phenotyping Pipeline · Shan Oomes</title>
+  <meta name="description" content="Computer vision pipeline for automated plant trait extraction, built for NPEC." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
+  </div>
+
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__logo">Shan Oomes</a>
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="index.html#work"    class="navbar__link">Work</a>
+        <a href="index.html#about"   class="navbar__link">About</a>
+        <a href="index.html#skills"  class="navbar__link">Skills</a>
+        <a href="index.html#writing" class="navbar__link">Writing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+        </span>
+      </button>
+      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="navbar__mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html#work"    class="navbar__mobile-link">Work</a>
+      <a href="index.html#about"   class="navbar__mobile-link">About</a>
+      <a href="index.html#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="index.html#writing" class="navbar__mobile-link">Writing</a>
+      <a href="index.html#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
+  </div>
+
+  <section class="project-header section">
+    <div class="container">
+      <p class="caption" style="margin-bottom: var(--space-3);">
+        <a href="index.html#work" style="color: var(--color-text-muted);">← Work</a>
+      </p>
+      <p class="caption" style="color: var(--color-text-muted); margin-bottom: var(--space-2);">NPEC · 2023</p>
+      <h1 style="margin-bottom: var(--space-4);">Plant Phenotyping Pipeline</h1>
+      <p style="max-width: var(--max-width-text); margin-bottom: var(--space-6);">
+        A computer vision pipeline that automatically extracts plant growth traits from
+        high-throughput imagery — replacing hours of manual measurement with a batch process
+        that runs overnight.
+      </p>
+      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Computer Vision</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Python</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">OpenCV</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Robotics</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section section--secondary">
+    <div class="container">
+      <img src="assets/npec-diagram.svg" alt="NPEC phenotyping pipeline diagram" style="width: 100%; max-width: 900px; margin-inline: auto; display: block;" loading="lazy" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <div class="container">
+      <div class="project-module">
+
+        <div class="project-module__block fade-up">
+          <h2>Context</h2>
+          <p>
+            NPEC (Netherlands Plant Eco-phenotyping Centre) runs high-throughput plant imaging
+            experiments — hundreds of plants photographed from multiple angles at regular intervals
+            over the course of weeks. Researchers needed to extract quantitative traits from this
+            imagery: plant height, leaf area, rosette diameter, colour indices.
+          </p>
+          <p>
+            The existing process was partly manual. Researchers would sample a subset of images,
+            take measurements by hand, and extrapolate. This introduced human variability and meant
+            only a fraction of the available data was actually analysed.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Challenge</h2>
+          <p>
+            Plants are awkward computer vision subjects. They're non-rigid, their appearance
+            changes significantly over the growth period, and the imaging setup (overhead + side
+            cameras, controlled lighting) introduces its own artefacts. The pipeline needed to
+            handle the full range of plant sizes and shapes across an experiment without manual
+            tuning between batches.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I built</h2>
+          <p>
+            A four-stage batch pipeline:
+          </p>
+          <ol style="padding-left: var(--space-3); line-height: var(--leading-body);">
+            <li style="margin-bottom: var(--space-2);"><strong>Ingestion & calibration</strong> — Images are loaded, lens distortion corrected using calibration targets, and scaled to a consistent pixels-per-mm ratio.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Segmentation</strong> — Background subtraction using HSV colour thresholding isolates the plant from the tray and conveyor belt. Morphological operations clean up the mask.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Trait extraction</strong> — From the segmented mask: projected leaf area (pixel count × scale²), bounding box height, convex hull area, and RGB/HSV colour indices are computed per plant per timepoint.</li>
+            <li><strong>Output</strong> — Results are written to structured CSV files with plant ID, timepoint, and all extracted traits — directly importable into the statistical analysis tools the researchers already use.</li>
+          </ol>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Key results</h2>
+          <p>
+            Processing time for a full experiment batch (≈ 2,400 images) dropped from several days
+            of manual work to an overnight automated run. Trait extraction error versus manual ground
+            truth measurements was within 3–5% for leaf area and height — within the acceptable
+            range for the downstream statistical analyses.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I learned</h2>
+          <p>
+            Calibration is everything in quantitative imaging. Early versions of the pipeline
+            produced measurements that looked plausible but drifted by 8–12% from ground truth
+            because of inconsistent scale correction between camera positions. Fixing the
+            calibration step — boring, methodical work — had more impact on accuracy than any
+            improvement to the segmentation algorithm.
+          </p>
+          <p>
+            This project introduced me to the robotics and automation side of data science.
+            The imaging system itself is a conveyor-based robot; the pipeline slots into a
+            larger automated infrastructure. That context changed how I thought about
+            edge cases — the pipeline needs to handle a plant that fell over, a tray that
+            arrived empty, a camera that captured partial occlusion.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

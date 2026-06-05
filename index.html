@@ -1,306 +1,501 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shan Oomes - Student Data Science & AI</title>
-  <link rel="icon" href="assets/cross.png" sizes="16x16" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shan Oomes — Data Science & AI</title>
+  <meta name="description" content="Portfolio of Shan Oomes, Data Science & AI student at Breda University of Applied Sciences." />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
 
-  <!-- JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="script.js"></script>
-  <script defer src="app.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
 
-  <!-- reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-  <!-- Meta Tags -->
-  <meta name="description" content="FIX biedt uitgebreide ICT-ondersteuning voor thuis, met deskundige hulp bij installatie, onderhoud en probleemoplossing van uw digitale apparaten. Geniet van moeiteloze technologie in uw dagelijks leven met onze transparante prijzen en positieve klantenreviews. Neem contact op voor zorgeloze technische ondersteuning.">
-  <meta name="keywords" content="ICT ondersteuning thuis, Digitale apparaat hulp, Installatieservice technologie, Onderhoud digitale apparaten, Probleemoplossing ICT, Technische ondersteuning thuis, Transparante ICT prijzen, Klantenreviews ICT services, Contact ICT hulp, Naadloze technologie ervaring">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
 </head>
-
-<!-- Google tag (gtag.js) -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-5G5QP6J26Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5G5QP6J26Q');
-</script> -->
-
 <body>
 
-<!-- Navbar (sit on top) -->
-<div id="navbar">
-  <div class="w3-bar w3-white w3-wide w3-padding w3-card" style="position: relative;">
-      <!-- Scrolling Text Inside Navbar -->
-      <div class="scrolling-text" style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 30px; overflow: hidden; border-bottom: 1px solid black;">
-          <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="3">
-              <p class="marquee-text" style="margin: 0; line-height: 30px;">Portfolio - Shan Oomes - Student Data Science & AI</p>
-          </marquee>
-      </div>
-      <!-- Logo and Navbar Links -->
-      <a href="#home" class="w3-bar-item w3-button" onclick="smoothScroll('#home', event)" aria-label="Home" style="margin-top: 30px;">
-          <img src="assets/Logo Shan.svg" alt="Self-portret" style="width:50%;">
-      </a>
-      <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right w3-hide-small" style="margin-top: 30px;">
-          <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me">About me</a>
-          <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on">Projects</a>
-          <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me">Contact</a>
-      </div>
+  <!-- ============================================================
+       ANNOUNCEMENT BAR
+  ============================================================ -->
+  <div class="announcement-bar" role="banner">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
   </div>
-</div>
 
-<div class="sidebar">
-    <div class="sidebar-container">
-      <ul>
-        <li class="icon-container">
-          <a href="#navbar" class="w3-bar-item hover-button" onclick="smoothScroll('#navbar', event)" aria-label="Home"><span class="icon-container"><i class="fas fa-house"></i></span></a>
-        </li>
-        <li class="icon-container">
-          <a href="#about" class="w3-bar-item hover-button" onclick="smoothScroll('#about', event)" aria-label="Learn more about me"><span class="icon-container"><i class="fas fa-user"></i></span></a>
-        </li>
-        <li class="icon-container">
-            <a href="#projects" class="w3-bar-item hover-button" onclick="smoothScroll('#projects', event)" aria-label="Learn about the projects I have worked on"><span class="icon-container"><i class="fas fa-circle"></i></span></a>
-        </li>
-        <li class="icon-container">
-            <a href="#contact" class="w3-bar-item hover-button" onclick="smoothScroll('#contact', event)" aria-label="Get in touch with me"><span class="icon-container"><i class="fas fa-envelope"></i></span></a>
-        </li>
-      </ul>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <header class="navbar" role="banner">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#" class="navbar__logo">Shan Oomes</a>
+
+      <!-- Desktop links — centred absolutely -->
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="#work"    class="navbar__link">Work</a>
+        <a href="#about"   class="navbar__link">About</a>
+        <a href="#skills"  class="navbar__link">Skills</a>
+        <a href="#writing" class="navbar__link">Writing</a>
+        <a href="#contact" class="navbar__link">Contact</a>
+      </nav>
+
+      <!-- Dark-mode toggle -->
+      <button
+        class="theme-toggle"
+        aria-pressed="false"
+        aria-label="Switch to dark mode"
+        type="button"
+      >
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a">
+            <!-- Sun icon (shown in light mode) -->
+            <svg class="theme-toggle__svg theme-toggle__svg--sun" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+            <!-- Moon icon (shown in dark mode) -->
+            <svg class="theme-toggle__svg theme-toggle__svg--moon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="theme-toggle__circle theme-toggle__circle--b">
+            <!-- Moon icon (shown in light mode slot) -->
+            <svg class="theme-toggle__svg theme-toggle__svg--moon" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <!-- Sun icon (shown in dark mode slot) -->
+            <svg class="theme-toggle__svg theme-toggle__svg--sun" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+              <path d="M12 3v2m0 14v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </span>
+        </span>
+      </button>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="navbar__hamburger"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        type="button"
+      >
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+
     </div>
-</div>
+  </header>
 
-<!-- Header -->
-<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="w3images/architect.jpg" alt="Architecture" width="1500" height="800">
-    <div class="w3-display-middle w3-margin-top w3-center">
-        <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>SHAN</b></span> <span class="w3-hide-small w3-text-light-grey">Portfolio</span></h1>
-        <!-- <img src="assets/fix_logo.png" alt="Fix Logo" width="200" height="200"> -->
-    </div>
-    <div class="cross-pattern top">
-        <!-- Generate multiple cross elements dynamically -->
-        <script>
-            const upper_crossCount = 22; // Specify the number of crosses you want to generate
-
-            for (let index = 0; index < upper_crossCount; index++) {
-                document.write('<div class="cross"></div>');
-            }
-        </script>
-    </div>
-    <div class="cross-pattern bottom" >
-        <!-- Generate multiple cross elements dynamically -->
-        <script>
-            const down_crossCount = 22; // Specify the number of crosses you want to generate
-
-            for (let index = 0; index < down_crossCount; index++) {
-                document.write('<div class="cross"></div>');
-            }
-        </script>
-    </div>
-</header>
-
-<!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
-
-<!-- About Section -->
-<div class="mnb" id="about">
-  <div class="w3-padding w3-round-large">
-    <img src="assets/e4c1f640-98fe-4660-96d8-ef517479faf6.jpeg" alt="Self-portrait" style="display: flex; justify-content: center; align-items: center;">
+  <!-- Mobile menu -->
+  <div class="navbar__mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="#work"    class="navbar__mobile-link">Work</a>
+      <a href="#about"   class="navbar__mobile-link">About</a>
+      <a href="#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="#writing" class="navbar__mobile-link">Writing</a>
+      <a href="#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
   </div>
-  <div class="w3-card w3-padding w3-round-large">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About me</h3>
-    <p>As a current Data Science and AI student, I combine a solid foundation in technical knowledge with a passion for innovation in artificial intelligence. My academic journey, which includes a background in game development and professional experience in web development, has given me a diverse set of skills that allows me to tackle complex challenges across multiple domains. From data analysis and machine learning to the creation of intelligent systems, I, Shan Oomes, am deeply focused on applying AI techniques to solve real-world problems, while continually exploring new frontiers in automation, data-driven decision-making, and algorithmic efficiency.</p>
-    <p>Currently, I am responsible for onboarding new self-employed professionals in the healthcare sector at PIDZ, where attention to detail and process efficiency are key. My past role as a junior programmer at Flexpulse saw me developing both front-end and back-end features, utilizing programming languages like Python, PHP, and SQL to enhance the software's functionality.</p>
-    <p>I am passionate about AI, machine learning, and data analysis, and I’m eager to apply these tools to solve real-world problems. Whether it's working on a complex algorithm or collaborating on user-friendly software solutions, I am driven by the desire to continuously learn and contribute in impactful ways.</p>
-  </div>
-</div>
 
 
-<!-- Projects Section -->
-<div class="w3-container w3-padding-32" id="projects">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Projects</h3>
-    <p> Some of the projects I have worked on.
-    </p>
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
+  <section class="hero" id="hero">
 
-    <div id="projects-grid" class="w3-row-padding">
-      <!-- Filter Buttons -->
-      <div class="filter-buttons">
-        <button onclick="filterProjects('all')">Show All</button>
-        <button onclick="filterProjects('machine-learning')">Machine Learning</button>
-        <button onclick="filterProjects('computer-vision')">Computer vision</button>
-        <button onclick="filterProjects('nlp')">NLP</button>
-      </div>
+    <!-- Aurora background -->
+    <div class="hero__aurora" aria-hidden="true"></div>
 
-      <div class="spacing machine-learning computer-vision plant-phenotyping">
-        <div class="w3-card w3-padding w3-round-large">
-          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Automated Plant Phenotyping with Computer Vision and Robotics</h2>
-          <div class="flex-container">
-            <div class="flex-item"><i class="fas fa-computer"></i> Machine Learning</div>
-            <div class="flex-item"><i class="fas fa-robot"></i> Robotics</div>
-            <div class="flex-item"><i class="fas fa-eye"></i> Computer Vision</div>
-            <div class="flex-item"><i class="fas fa-seedling"></i> Plant Phenotyping</div>
-          </div>
-          <div style="margin-top: 20px;">
-            <button onclick="window.location.href='https://github.com/ShanToa/Code_showcase/blob/main/NPEC_project/phenotyping.md';" class="hover-button w3-black w3-section">
-              <i class="fas fa-code"></i> Go to Code Snippet
-            </button>
-          </div>
-          <div style="margin-top: 40px;">
-            <p>For this project, I worked in collaboration with the Netherlands Plant Eco-phenotyping Center (NPEC), through my association with Breda University of Applied Sciences. The project's primary objective was to revolutionize plant phenotyping by integrating computer vision and robotics to enhance plant root analysis and improve automation in precision inoculation.</p>
-    
-            <p>To address plant phenotyping challenges, computer vision techniques were employed to isolate Petri dishes from background noise and perform semantic segmentation of plant components like seeds, shoots, and roots. With a refined and preprocessed dataset, I developed a machine learning model capable of accurately predicting masks for different plant structures. This allowed for instance segmentation, which identified individual plants in the images and facilitated detailed measurements, such as root length and the precise localization of root tips—a critical step in assessing plant growth and traits.</p>
-    
-            <p>In parallel with the computer vision work, the robotics aspect of the project focused on automating the delivery of inoculants to the identified plant root tips. I simulated and developed a precision liquid handling robot that was programmed using a PID controller for accurate liquid dispensing. The robot was integrated with the computer vision system, enabling it to locate and deliver the liquid to targeted areas on the Petri dish. This demonstrated how vision-based analysis could be seamlessly combined with robotic automation, allowing for precise interventions in plant phenotyping experiments.</p>
-    
-            <p>Additionally, I incorporated reinforcement learning to enhance the robot’s navigation and precision. By designing appropriate reward functions and conducting hyperparameter tuning, I ensured that the robot could autonomously navigate to the correct root tips for liquid delivery. The integration of reinforcement learning further improved the system's efficiency, as the robot learned to optimize its path and actions based on real-time feedback.</p>
-    
-            <h5>Key Findings:</h5>
-            <ul>
-                <li>The computer vision model was able to achieve high accuracy in isolating plant structures, particularly roots, enabling more efficient plant trait analysis.</li>
-                <li>The liquid handling robot demonstrated precise inoculation capabilities when integrated with vision-based localization, enhancing automation in plant phenotyping.</li>
-                <li>Reinforcement learning significantly improved the robot’s precision in liquid delivery, ensuring accurate targeting of plant root tips.</li>
-                <li>The combination of machine learning, computer vision, and robotics proved to be an effective approach for automated plant phenotyping.</li>
-            </ul>
-    
-            <p>The project culminated in a comprehensive technical report, which documented the methodologies used for dataset acquisition and preprocessing, and detailed the computer vision and robotics pipelines. The report included a flowchart that depicted the overall workflow and performance metrics that evaluated the accuracy of root segmentation, robot precision, and the effectiveness of reinforcement learning in task execution.</p>
-    
-            <h5>Skills Gained:</h5>
-            <ul>
-                <li><strong>Robotics</strong> – Developed and simulated a robot with a PID controller for precise inoculation tasks.</li>
-                <li><strong>Computer Vision</strong> – Applied segmentation techniques to isolate plant structures, enabling accurate plant root phenotyping.</li>
-                <li><strong>Reinforcement Learning</strong> – Crafted reward functions and optimized RL models for autonomous robot navigation and liquid delivery.</li>
-                <li><strong>Machine Learning</strong> – Built predictive models for plant segmentation and collaborated on enhancing robotics through ML integration.</li>
-            </ul>
-    
-            <p>The outcomes of this project demonstrated the successful synergy between computer vision and robotics, advancing automated plant phenotyping. The technical report and findings offered a valuable contribution to NPEC's goal of improving plant analysis through AI technologies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="spacing machine-learning nlp emotion-classification">
-        <div class="w3-card w3-padding w3-round-large">
-          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Emotion Classification with Machine Learning</h2>
-          <div class="flex-container">
-            <div class="flex-item"><i class="fas fa-comments"></i> Natural Language Processing (NLP)</div>
-            <div class="flex-item"><i class="fas fa-computer"></i> Machine Learning</div>
-            <div class="flex-item"><i class="fas fa-face-smile"></i> Emotion Classification</div>
-          </div>
-          <div style="margin-top: 20px;">
-            <button onclick="window.location.href='https://github.com/ShanToa/Code_showcase/blob/main/NLP_project/Emotion_classification.md';" class="hover-button w3-black w3-section">
-              <i class="fas fa-code"></i> Go to Code Snippet
-            </button>
-          </div>
-          <div style="margin-top: 40px;">
-            <p>For this group project, my team and I collaborated with Banijay, in association with Breda University of Applied Sciences, to develop an emotion classification system utilizing natural language processing (NLP) and machine learning models. The objective was to analyze video content, detecting and classifying emotions to enhance the content's emotional impact and insights.</p>
-    
-            <p>The data preprocessing involved cleaning text data using regular expressions, and normalizing it through tokenization and stemming techniques. Word embeddings were then used to represent words as vectors, enabling the integration of these vectors into machine learning models. Additional feature extraction methods like TF-IDF and Part-of-Speech (POS) tagging were applied. A custom word embedding model, trained on our project-specific corpus, was incorporated to enhance emotion classification accuracy.</p>
-    
-            <p>We experimented with multiple models for emotion classification. Initial models were developed using Naïve Bayes and Logistic Regression algorithms. Further sophistication was added with sequence models such as Recurrent Neural Networks (RNN), XGBoost, and Long Short-Term Memory (LSTM) networks, each contributing to an improved understanding of emotional cues in text.</p>
-    
-            <p>A robust pipeline was developed to break down video content into fragments, extract text from these fragments, and predict emotions for each segment. To ensure optimal performance, we tested transformer models using Hugging Face, selecting RoBERTa as the core model. RoBERTa was fine-tuned on the dataset and achieved high accuracy in emotion classification.</p>
-    
-            <p>Comprehensive model evaluation was performed using metrics such as accuracy, precision, recall, and F1-score. Through error analysis, we identified areas for improvement, balancing performance metrics to select the most effective model. The process and results were documented in a detailed technical report, showcasing the methodologies and findings.</p>
-    
-            <h5>Key Findings:</h5>
-            <ul>
-                <li>RoBERTa outperformed other models in emotion classification, achieving significant accuracy improvements after fine-tuning on the project-specific dataset.</li>
-                <li>Data preprocessing and feature extraction were critical in improving model performance, with POS tagging and word embeddings contributing to enhanced emotion detection.</li>
-                <li>The pipeline's automated process for splitting video and extracting text enabled efficient emotion classification across various video content.</li>
-                <li>Combining traditional algorithms with advanced transformer models provided a deeper understanding and classification of emotions in media content.</li>
-            </ul>
-    
-            <h5>Skills Gained:</h5>
-            <ul>
-                <li><strong>Transformer Models</strong> – Implemented and fine-tuned transformer models, specifically RoBERTa, for NLP tasks.</li>
-                <li><strong>Performance Metrics Analysis</strong> – Evaluated models using accuracy, precision, recall, and F1-score.</li>
-                <li><strong>Feature Engineering</strong> – Applied techniques such as tokenization, TF-IDF, and POS tagging for improved model performance.</li>
-                <li><strong>Natural Language Processing (NLP)</strong> – Developed emotion classification models using advanced NLP techniques.</li>
-                <li><strong>Model Evaluation</strong> – Conducted comprehensive model performance assessments and error analyses.</li>
-            </ul>
-    
-            <p>The project provided Banijay with a robust tool for analyzing emotional content in their video assets, offering actionable insights to enhance viewer engagement through AI-driven emotion classification.</p>
-          </div>
-        </div>
-      </div>
+    <!-- Grid layers -->
+    <div class="hero__grid-base"   aria-hidden="true"></div>
+    <div class="hero__grid-reveal" aria-hidden="true"></div>
 
-      <div class="spacing logistics">
-        <div class="w3-card w3-padding w3-round-large">
-          <h2 class="w3-border-bottom w3-border-light-grey w3-padding-16"><i class="fas fa-diagram-project"></i> Move Intermodal, logistics</h2>
-          <div class="flex-container">
-            <div class="flex-item"><i class="fas fa-computer"></i> Machine Learning</div>
-            <div class="flex-item"><i class="fas fa-truck"></i> Logistics</div>
-          </div>
-          <p>Move Intermodal, an intermodal logistics provider, seeks to leverage artificial intelligence to predict shipping costs and optimize decision-making. Using their historical shipment data, an AI model will be developed to estimate costs based on various factors such as route, cargo type, and transport mode. The model will provide actionable insights into cost drivers, trustworthy estimates, and potential savings. By integrating with Move's existing data systems, the project aims to improve operational efficiency, enhance strategic planning, and foster a data-driven culture within the organization.</p>
+    <div class="container hero__inner">
+      <div class="hero__content">
+        <p class="hero__label">Data Science & AI — Breda University of Applied Sciences</p>
+        <h1 class="hero__title">
+          Building intelligent<br />
+          systems.
+        </h1>
+        <p class="hero__sub">
+          I design and build machine learning systems that solve real problems —
+          from document intelligence to computer vision and NLP.
+        </p>
+        <div class="hero__cta">
+          <a href="#work" class="btn btn-primary">View work</a>
         </div>
       </div>
     </div>
 
-</div>
+  </section>
 
-<!-- Contact Section -->
-<div class="w3-container w3-padding-32" id="contact" style="height: 900px;">
-  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-  <p>Do you have any questions or would you like to discuss a project? Feel free to contact me using the form below. I will get back to you as soon as possible.</p>
-  <p class="w3-text-grey w3-small">* required</p>
-  <form id="contact-form" action="/submit-form" method="POST">
-    <div class="w3-row-padding">
-      <div class="w3-half">
-        <input class="w3-input w3-section w3-border" type="text" id="name" placeholder="Name*" required name="Name">
-      </div>
-      <div class="w3-half">
-        <input class="w3-input w3-section w3-border" type="tel" id="phone" placeholder="Phone number" name="Phone number">
-      </div>
-    </div>
-    <div class="w3-row-padding">
-      <div class="w3-half">
-        <input class="w3-input w3-section w3-border" type="email" id="email" placeholder="Email*" required name="Email">
-      </div>
-      <div class="w3-half">
-        <input class="w3-input w3-section w3-border" type="text" id="subject" placeholder="Subject*" required name="Subject">
-      </div>
-    </div>
-    <div class="w3-row-padding">
-      <div class="w3-col">
-        <textarea class="w3-input w3-section w3-border" id="message" placeholder="Message*" required name="Message" rows="5"></textarea>
-      </div>
-    </div>
-    <div class="w3-row-padding">
-      <div class="w3-col">
-        <div class="g-recaptcha" data-sitekey="6LfbvGUpAAAAACSEI6_jlqSjWh72TDZpTcc2tF5l"></div>
-      </div>
-    </div>
-    <div class="w3-row-padding">
-      <div class="w3-col">
-        <button class="hover-button w3-black w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> Send Message
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-
-<!-- End page content -->
-</div>
+  <hr class="divider" />
 
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-16">
-  <p>Powered by 
-    <a href="https://shanoomes.nl/" title="Shan" target="_blank" aria-label="Bezoek de website van Shan voor meer informatie over Shan zijn werk">
-      <img src="assets/Logo_Shan_1.svg" alt="Logo Shan" class="w3-card w3-padding w3-round-large" style="width: 135px; height: 60px; background-color: white;">
-    </a>
-  </p>
-</footer>
+  <!-- ============================================================
+       WORK
+  ============================================================ -->
+  <section class="work section" id="work">
+    <div class="container">
 
+      <h2>Selected work</h2>
+
+      <div class="work__grid">
+
+        <!-- AIDA -->
+        <a href="aida.html" class="project-card fade-up">
+          <div class="project-card__img-wrap">
+            <img src="assets/equans-logo.png" alt="Equans logo" class="project-card__img-logo" />
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tags caption">NLP · RAG · Azure · Python</span>
+            <h3 class="project-card__title">AIDA — AI Document Assistant</h3>
+            <p class="project-card__desc">Conversational AI system for intelligent retrieval and summarisation of engineering documentation.</p>
+            <span class="project-card__link">View project →</span>
+          </div>
+        </a>
+
+        <!-- NPEC -->
+        <a href="npec.html" class="project-card fade-up">
+          <div class="project-card__img-wrap">
+            <img src="assets/npec-logo.png" alt="NPEC logo" class="project-card__img-logo" />
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tags caption">Computer Vision · Python · OpenCV</span>
+            <h3 class="project-card__title">Plant Phenotyping Pipeline</h3>
+            <p class="project-card__desc">Computer vision pipeline for automated trait extraction from high-throughput plant imagery.</p>
+            <span class="project-card__link">View project →</span>
+          </div>
+        </a>
+
+        <!-- Banijay -->
+        <a href="banijay.html" class="project-card fade-up">
+          <div class="project-card__img-wrap">
+            <img src="assets/banijay-logo.png" alt="Banijay logo" class="project-card__img-logo" />
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tags caption">NLP · Sentiment · Dashboarding</span>
+            <h3 class="project-card__title">Content Intelligence Dashboard</h3>
+            <p class="project-card__desc">NLP-driven analytics platform for audience insights and content performance across television formats.</p>
+            <span class="project-card__link">View project →</span>
+          </div>
+        </a>
+
+        <!-- Move -->
+        <a href="move.html" class="project-card fade-up">
+          <div class="project-card__img-wrap">
+            <img src="assets/move-intermodal-logo.png" alt="Move logo" class="project-card__img-logo" />
+          </div>
+          <div class="project-card__body">
+            <span class="project-card__tags caption">Reinforcement Learning · Python · Simulation</span>
+            <h3 class="project-card__title">Reinforcement Learning Scheduler</h3>
+            <p class="project-card__desc">RL-based scheduling agent that optimises resource allocation for event logistics under dynamic constraints.</p>
+            <span class="project-card__link">View project →</span>
+          </div>
+        </a>
+
+      </div><!-- /.work__grid -->
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
+  <section class="about section section--secondary" id="about">
+    <div class="container">
+
+      <h2>About</h2>
+
+      <div class="about__grid">
+
+        <div class="about__photo-col">
+          <div class="about__photo-wrap">
+            <img
+              src="assets/Shan Oomes-2.jpg"
+              alt="Shan Oomes"
+              class="about__photo"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="about__text-col">
+          <p>
+            I'm Shan Oomes, a final-year Data Science and AI student at Breda University of
+            Applied Sciences. I'm driven by curiosity and the kind of problems that don't have
+            a clean answer yet — I approach them with independent thinking and a commitment to
+            figuring things out properly, not just quickly.
+          </p>
+          <p>
+            My experience spans both the analytical and the technical. At ABN AMRO MeesPierson
+            I built dashboards and performed client data analyses for wealth management clients,
+            presenting findings to senior management to support data-driven decisions in private
+            banking. Before that I worked as a junior programmer at Flexpulse, developing
+            front-end and back-end features for a SaaS driving school system in Python, PHP, and SQL.
+          </p>
+          <p>
+            I'm currently completing my graduation project at Equans — building AIDA, an AI
+            system for intelligent document processing. It's the project that brings together
+            everything I've learned: messy real-world data, decisions that matter, and the
+            challenge of making a system that actually works outside of a controlled environment.
+          </p>
+          <p>
+            I bring technical depth and the ability to explain what I built to someone who wasn't
+            in the room. That combination — build it, then make it legible — is what I'm looking
+            for in my next role.
+          </p>
+
+          <button class="btn btn-primary about__cv-cta cv-trigger" type="button">
+            View CV
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       SKILLS
+  ============================================================ -->
+  <section class="skills section" id="skills">
+    <div class="container">
+
+      <h2>Skills</h2>
+
+      <div class="skills__groups">
+
+        <div class="skills__group fade-up">
+          <span class="skills__group-label">Languages</span>
+          <div class="skills__tags">
+            <span class="skills__tag">Python</span>
+            <span class="skills__tag">SQL</span>
+            <span class="skills__tag">PHP</span>
+          </div>
+        </div>
+
+        <div class="skills__group fade-up">
+          <span class="skills__group-label">Areas</span>
+          <div class="skills__tags">
+            <span class="skills__tag">Machine Learning</span>
+            <span class="skills__tag">NLP</span>
+            <span class="skills__tag">Computer Vision</span>
+            <span class="skills__tag">Reinforcement Learning</span>
+            <span class="skills__tag">Anomaly Detection</span>
+            <span class="skills__tag">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="skills__group fade-up">
+          <span class="skills__group-label">Libraries</span>
+          <div class="skills__tags">
+            <span class="skills__tag">Scikit-learn</span>
+            <span class="skills__tag">Hugging Face Transformers</span>
+            <span class="skills__tag">PyTorch</span>
+            <span class="skills__tag">SBERT</span>
+            <span class="skills__tag">Pandas</span>
+          </div>
+        </div>
+
+        <div class="skills__group fade-up">
+          <span class="skills__group-label">Platforms</span>
+          <div class="skills__tags">
+            <span class="skills__tag">Power BI</span>
+            <span class="skills__tag">Azure</span>
+            <span class="skills__tag">Git</span>
+            <span class="skills__tag">SharePoint</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ============================================================
+       WRITING
+  ============================================================ -->
+  <section class="writing section section--secondary" id="writing">
+    <div class="container">
+
+      <h2>Writing</h2>
+
+      <div class="writing__list">
+
+        <article class="writing-entry fade-up">
+          <a href="post-pdf.html" class="writing-entry__link">
+            <div class="writing-entry__meta">
+              <span class="caption">2024</span>
+            </div>
+            <div class="writing-entry__body">
+              <h3 class="writing-entry__title">The PDFs were not what I expected</h3>
+              <p class="writing-entry__excerpt">
+                On building a document intelligence system and discovering that
+                real-world PDFs bear almost no resemblance to the clean inputs
+                your model was trained on.
+              </p>
+            </div>
+            <span class="writing-entry__arrow" aria-hidden="true">→</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
+  <section class="contact section" id="contact">
+    <div class="container">
+
+      <h2>Contact</h2>
+
+      <div class="contact__links fade-up">
+
+        <a href="mailto:shanoomes270@gmail.com" class="contact__link">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+          <span class="contact__link-label">Email</span>
+          <span class="contact__link-value">shanoomes270@gmail.com</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/shan-oomes" class="contact__link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+          <span class="contact__link-label">LinkedIn</span>
+          <span class="contact__link-value">linkedin.com/in/shan-oomes</span>
+        </a>
+
+        <a href="https://github.com/ShanToa" class="contact__link" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          <span class="contact__link-label">GitHub</span>
+          <span class="contact__link-value">github.com/ShanToa</span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       CV MODAL
+  ============================================================ -->
+  <div class="cv-modal" role="dialog" aria-modal="true" aria-label="CV" aria-hidden="true" hidden>
+    <div class="cv-modal__backdrop"></div>
+    <div class="cv-modal__panel">
+
+      <button class="cv-modal__close" aria-label="Close CV" type="button">&#x2715;</button>
+
+      <div class="cv-modal__content">
+        <h2 style="border-bottom: none; margin-bottom: var(--space-6);">Shan Oomes</h2>
+        <p class="caption" style="margin-bottom: var(--space-8);">Data Science & AI · Breda University · shanoomes.nl</p>
+
+        <h3 style="margin-bottom: var(--space-4);">Experience</h3>
+
+        <div class="cv-timeline">
+
+          <div class="cv-timeline__item">
+            <div class="cv-timeline__dot"></div>
+            <div class="cv-timeline__body">
+              <span class="caption">2023 – 2024</span>
+              <h3 class="cv-timeline__role">Data Science Intern — Equans</h3>
+              <p>
+                Designed and built AIDA, a Retrieval-Augmented Generation system
+                for engineering documentation. Integrated Azure Form Recognizer,
+                SBERT embeddings, and a SharePoint-connected knowledge base.
+              </p>
+            </div>
+          </div>
+
+          <div class="cv-timeline__item">
+            <div class="cv-timeline__dot"></div>
+            <div class="cv-timeline__body">
+              <span class="caption">2022 – 2023</span>
+              <h3 class="cv-timeline__role">Junior Data Analyst — ABN AMRO (part-time)</h3>
+              <p>
+                Supported the analytics team with SQL reporting and Python-based
+                data pipelines for internal risk dashboards.
+              </p>
+            </div>
+          </div>
+
+          <div class="cv-timeline__item">
+            <div class="cv-timeline__dot"></div>
+            <div class="cv-timeline__body">
+              <span class="caption">2021 – 2022</span>
+              <h3 class="cv-timeline__role">Freelance Developer — Flexpulse</h3>
+              <p>
+                Built and maintained PHP/MySQL web applications for logistics
+                clients. Delivered custom reporting tools and REST API integrations.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-4);">Education</h3>
+        <div class="cv-timeline">
+          <div class="cv-timeline__item">
+            <div class="cv-timeline__dot"></div>
+            <div class="cv-timeline__body">
+              <span class="caption">2021 – 2025</span>
+              <h3 class="cv-timeline__role">BSc Data Science & AI — Breda University of Applied Sciences</h3>
+              <p>Specialisation in NLP and applied machine learning. Graduation project: AIDA document intelligence system at Equans.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="main.js"></script>
 </body>
 </html>

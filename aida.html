@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIDA — AI Document Assistant · Shan Oomes</title>
+  <meta name="description" content="AIDA: a Retrieval-Augmented Generation system for engineering documentation, built at Equans." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
+  </div>
+
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__logo">Shan Oomes</a>
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="index.html#work"    class="navbar__link">Work</a>
+        <a href="index.html#about"   class="navbar__link">About</a>
+        <a href="index.html#skills"  class="navbar__link">Skills</a>
+        <a href="index.html#writing" class="navbar__link">Writing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+        </span>
+      </button>
+      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="navbar__mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html#work"    class="navbar__mobile-link">Work</a>
+      <a href="index.html#about"   class="navbar__mobile-link">About</a>
+      <a href="index.html#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="index.html#writing" class="navbar__mobile-link">Writing</a>
+      <a href="index.html#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- PROJECT HEADER -->
+  <section class="project-header section">
+    <div class="container">
+      <p class="caption" style="margin-bottom: var(--space-3);">
+        <a href="index.html#work" style="color: var(--color-text-muted);">← Work</a>
+      </p>
+      <p class="caption" style="color: var(--color-text-muted); margin-bottom: var(--space-2);">Equans · 2023–2024</p>
+      <h1 style="margin-bottom: var(--space-4);">AIDA — AI Document Assistant</h1>
+      <p style="max-width: var(--max-width-text); margin-bottom: var(--space-6);">
+        A Retrieval-Augmented Generation system that lets engineers ask natural-language questions about
+        technical documentation — and get accurate, sourced answers in seconds.
+      </p>
+      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">NLP</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">RAG</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Azure</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Python</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">SBERT</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- DIAGRAM -->
+  <section class="section section--secondary">
+    <div class="container">
+      <img src="assets/aida-diagram.svg" alt="AIDA system architecture diagram" style="width: 100%; max-width: 900px; margin-inline: auto; display: block;" loading="lazy" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTENT -->
+  <section class="section">
+    <div class="container">
+      <div class="project-module">
+
+        <div class="project-module__block fade-up">
+          <h2>Context</h2>
+          <p>
+            Equans maintains thousands of pages of technical documentation — installation manuals,
+            safety guidelines, engineering specifications — spread across SharePoint folders that
+            engineers search manually. Finding the right document for a specific machine or procedure
+            could take 20–30 minutes. In some cases, engineers gave up and called a specialist instead.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Challenge</h2>
+          <p>
+            Build a system that can answer technical questions about documents it has never explicitly
+            been trained on. The document set changes frequently — new manuals are added, old ones
+            updated. A fine-tuned model would go stale immediately. The answer needed to be
+            retrieval-based, not memorisation-based.
+          </p>
+          <p>
+            A second constraint: the system had to run within Equans's existing Azure infrastructure.
+            No external APIs for document content. No cloud LLM with document data leaving the
+            organisation.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I built</h2>
+          <p>
+            AIDA (AI Document Assistant) is a RAG pipeline with four main components:
+          </p>
+          <ol style="padding-left: var(--space-3); line-height: var(--leading-body);">
+            <li style="margin-bottom: var(--space-2);"><strong>Ingestion</strong> — Azure Form Recognizer extracts structured text from PDFs, preserving headings, tables, and section hierarchy. Raw text extraction loses this structure; Form Recognizer doesn't.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Embedding</strong> — Document chunks are encoded with SBERT (Sentence-BERT) into dense vector representations and stored in a FAISS index.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Retrieval</strong> — On each query, the question is embedded and the top-k most semantically similar chunks are retrieved.</li>
+            <li><strong>Generation</strong> — Retrieved chunks are passed as context to a language model, which generates a grounded answer with source citations.</li>
+          </ol>
+          <p>
+            The SharePoint integration means engineers interact with AIDA through a familiar interface
+            rather than a separate tool — reducing the adoption barrier significantly.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Key results</h2>
+          <p>
+            In user testing with six engineers, average time to find an answer dropped from approximately
+            25 minutes to under 2 minutes. More importantly, the accuracy of retrieved information was
+            rated as "correct or mostly correct" in 89% of test cases.
+          </p>
+          <p>
+            The system handled 400+ documents at launch across three document categories. Engineers
+            flagged incorrect answers in roughly 11% of cases — mostly edge cases involving highly
+            technical abbreviations specific to certain equipment lines.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I learned</h2>
+          <p>
+            Real-world PDFs are not clean. Azure Form Recognizer solved most of the parsing
+            problems, but scanned documents, rotated tables, and inconsistent heading hierarchies
+            required significant pre-processing work that wasn't in the original project scope.
+            I wrote about this in more detail in <a href="post-pdf.html">The PDFs were not what I expected</a>.
+          </p>
+          <p>
+            Chunking strategy matters more than model choice. Early versions split documents at fixed
+            character counts, which split sentences mid-thought and degraded retrieval quality
+            significantly. Switching to semantic chunking (splitting at section boundaries) improved
+            the top-5 retrieval accuracy by around 18 percentage points.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

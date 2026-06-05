@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RL Scheduler · Shan Oomes</title>
+  <meta name="description" content="Reinforcement learning scheduling agent for event logistics at Move Agency." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
+  </div>
+
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__logo">Shan Oomes</a>
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="index.html#work"    class="navbar__link">Work</a>
+        <a href="index.html#about"   class="navbar__link">About</a>
+        <a href="index.html#skills"  class="navbar__link">Skills</a>
+        <a href="index.html#writing" class="navbar__link">Writing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+        </span>
+      </button>
+      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="navbar__mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html#work"    class="navbar__mobile-link">Work</a>
+      <a href="index.html#about"   class="navbar__mobile-link">About</a>
+      <a href="index.html#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="index.html#writing" class="navbar__mobile-link">Writing</a>
+      <a href="index.html#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
+  </div>
+
+  <section class="project-header section">
+    <div class="container">
+      <p class="caption" style="margin-bottom: var(--space-3);">
+        <a href="index.html#work" style="color: var(--color-text-muted);">← Work</a>
+      </p>
+      <p class="caption" style="color: var(--color-text-muted); margin-bottom: var(--space-2);">Move Agency · 2023</p>
+      <h1 style="margin-bottom: var(--space-4);">Reinforcement Learning Scheduler</h1>
+      <p style="max-width: var(--max-width-text); margin-bottom: var(--space-6);">
+        An RL agent trained in simulation to optimise crew and equipment scheduling for
+        large-scale event logistics — handling dynamic constraints that make the problem
+        too complex for rule-based approaches.
+      </p>
+      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Reinforcement Learning</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Python</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Simulation</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Optimisation</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section section--secondary">
+    <div class="container">
+      <img src="assets/move-diagram.svg" alt="RL scheduler architecture and training loop diagram" style="width: 100%; max-width: 900px; margin-inline: auto; display: block;" loading="lazy" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <div class="container">
+      <div class="project-module">
+
+        <div class="project-module__block fade-up">
+          <h2>Context</h2>
+          <p>
+            Move Agency coordinates logistics for large events — festivals, product launches,
+            stadium events. Scheduling the right crew members to the right tasks at the right
+            times involves dozens of constraints simultaneously: skill requirements per task,
+            crew availability windows, equipment dependencies, travel time between locations,
+            and hard deadlines tied to show schedules.
+          </p>
+          <p>
+            The existing process was manual, handled by experienced logistics coordinators.
+            It worked, but it scaled poorly and produced schedules that, while valid, often
+            left slack time and missed efficiency optimisations that a human planner under
+            time pressure wouldn't catch.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Challenge</h2>
+          <p>
+            Crew scheduling with this many simultaneous constraints is NP-hard. Classical
+            optimisation approaches (integer programming, constraint satisfaction) can find
+            optimal solutions but become intractably slow as the problem size grows. The goal
+            was a system that could produce good — not necessarily optimal — schedules fast
+            enough to be useful during live planning sessions.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I built</h2>
+          <p>
+            A simulation environment modelling the scheduling problem as a Markov Decision
+            Process, with a Proximal Policy Optimisation (PPO) agent trained against it:
+          </p>
+          <ol style="padding-left: var(--space-3); line-height: var(--leading-body);">
+            <li style="margin-bottom: var(--space-2);"><strong>Environment</strong> — Custom Gym environment encoding tasks, crew members, constraints, and a time horizon. Actions = assigning a crew member to a task at a given time slot. Reward = schedule efficiency score minus constraint violations.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Agent</strong> — PPO with a small MLP policy network. Trained over 2M timesteps on randomised problem instances drawn from historical event data.</li>
+            <li><strong>Output</strong> — The trained agent produces a draft schedule in under a second for typical problem sizes. Coordinators review and adjust; the system handles the initial allocation that previously took 30–45 minutes.</li>
+          </ol>
+          <p style="margin-top: var(--space-3); font-style: italic; color: var(--color-text-muted);">
+            Note: the agent was evaluated in simulation. Deployment in live production scheduling
+            was outside the scope of this project.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Key results</h2>
+          <p>
+            In simulation benchmarks against historical schedules, the RL agent produced solutions
+            with 12–18% better crew utilisation and significantly fewer constraint violations than
+            the baseline greedy heuristic. On large problem instances (50+ crew, 200+ task slots),
+            it outperformed simulated annealing in solution quality within equivalent time budgets.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I learned</h2>
+          <p>
+            Reward shaping is the hardest part of RL in practice. The first reward function I
+            designed produced an agent that learned to avoid constraint violations by... not
+            assigning anyone to anything. Zero violations, zero utility. Getting the reward signal
+            right required understanding what "good" looks like from the domain expert's perspective
+            and encoding that into a function that the agent could actually learn from.
+          </p>
+          <p>
+            I also learned the limits of simulation-to-real transfer. The agent performs well on
+            problem instances that look like its training distribution. When coordinators described
+            edge cases from real events — a crew member going home sick mid-event, a stage delayed
+            by two hours — the agent struggled. Handling distributional shift properly would require
+            either a more diverse training set or a different architecture.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The PDFs were not what I expected · Shan Oomes</title>
+  <meta name="description" content="On building a document intelligence system and discovering that real-world PDFs are nothing like your training data." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
+  </div>
+
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__logo">Shan Oomes</a>
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="index.html#work"    class="navbar__link">Work</a>
+        <a href="index.html#about"   class="navbar__link">About</a>
+        <a href="index.html#skills"  class="navbar__link">Skills</a>
+        <a href="index.html#writing" class="navbar__link">Writing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+        </span>
+      </button>
+      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="navbar__mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html#work"    class="navbar__mobile-link">Work</a>
+      <a href="index.html#about"   class="navbar__mobile-link">About</a>
+      <a href="index.html#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="index.html#writing" class="navbar__mobile-link">Writing</a>
+      <a href="index.html#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- POST HEADER -->
+  <section class="post-header section">
+    <div class="container" style="max-width: var(--max-width-text); margin-inline: auto;">
+      <p class="caption" style="margin-bottom: var(--space-3);">
+        <a href="index.html#writing" style="color: var(--color-text-muted);">← Writing</a>
+      </p>
+      <p class="caption" style="color: var(--color-text-muted); margin-bottom: var(--space-3);">2024</p>
+      <h1 style="margin-bottom: var(--space-6);">The PDFs were not what I expected</h1>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- POST BODY -->
+  <section class="section">
+    <div class="container" style="max-width: var(--max-width-text); margin-inline: auto;">
+
+      <div class="post-body fade-up">
+
+        <p>
+          When I started building AIDA, the document intelligence system at Equans, I had a
+          mental model of what I was working with. PDFs. Text documents. Machine-readable content
+          sitting in files, waiting to be extracted and indexed.
+        </p>
+
+        <p>
+          That model was wrong in almost every specific.
+        </p>
+
+        <p>
+          The first thing I did was write a simple PDF text extractor using PyMuPDF. It worked
+          perfectly on the first five documents I tested it on. Clean extraction, correct structure,
+          headings preserved, tables legible. I thought the hard part was done.
+        </p>
+
+        <p>
+          Then I ran it on the actual document set.
+        </p>
+
+        <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">What was actually in there</h3>
+
+        <p>
+          About 30% of the documents were scanned PDFs — physical documents that had been
+          photographed or photocopied and saved as image-only PDFs. No text layer. PyMuPDF
+          returned empty strings. The documents existed; the content was invisible to any
+          text-based approach.
+        </p>
+
+        <p>
+          Another 20% had text layers, but those layers were either wrong (OCR artefacts from
+          an automated scan-to-PDF process years earlier) or structured oddly — multi-column
+          layouts where the text extraction order jumped between columns mid-sentence, tables
+          where the cells had been extracted as a flat stream of values with no delimiters.
+        </p>
+
+        <p>
+          Some documents were combinations of both: a PDF with a text layer that was a degraded
+          OCR pass from the 1990s, overlaid on the scan of the original printed page.
+        </p>
+
+        <p>
+          About 15% had been created from CAD software and contained technical drawings with
+          embedded text that was part of the drawing, not searchable document content.
+        </p>
+
+        <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">What I had to change</h3>
+
+        <p>
+          PyMuPDF got replaced by Azure Form Recognizer for the main ingestion pipeline. Form
+          Recognizer does layout analysis — it understands that two columns of text are two
+          columns, not one stream. It reconstructs tables. It runs OCR on image-only PDFs.
+          It's slower and costs money per page, but it produces structured output that the
+          rest of the pipeline can actually use.
+        </p>
+
+        <p>
+          The CAD documents got a different treatment: extracted text was flagged with a
+          low-confidence score, and those documents were excluded from the main retrieval
+          index. When a user queried about equipment covered in a CAD manual, the system
+          would note the limitation explicitly rather than returning garbled results.
+        </p>
+
+        <p>
+          The most important change was to the evaluation approach. I had been testing
+          extraction quality on a sample of "good" documents. I replaced that with a
+          stratified sample across document types — including the difficult ones.
+          The benchmark numbers got worse immediately and then improved as the pipeline improved.
+          That's the right direction.
+        </p>
+
+        <h3 style="margin-top: var(--space-8); margin-bottom: var(--space-3);">What this means more generally</h3>
+
+        <p>
+          The lesson isn't specific to PDFs. It's about the difference between the data you
+          test on and the data you'll actually encounter. In almost every real-world ML project
+          I've worked on, the hardest part was understanding what the input data actually looks
+          like — not designing the model that processes it.
+        </p>
+
+        <p>
+          The clean, well-structured benchmark datasets that ML papers are evaluated on exist
+          because someone cleaned them. The messy, inconsistent, partially-broken data that
+          exists in real organisations is how the world actually is. Building systems that
+          work on the second kind while only testing on the first kind is a way to be
+          confidently wrong.
+        </p>
+
+        <p>
+          The PDFs were not what I expected. They were better data about the problem than
+          any dataset I could have designed.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

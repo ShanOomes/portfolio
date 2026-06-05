@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Intelligence Dashboard · Shan Oomes</title>
+  <meta name="description" content="NLP-driven analytics for audience insights and content performance at Banijay Benelux." />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      } catch (_) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+
+  <div class="announcement-bar">
+    <span>Open to work&nbsp;·&nbsp;Available June 2026</span>
+  </div>
+
+  <header class="navbar">
+    <div class="navbar__inner container">
+      <a href="index.html" class="navbar__logo">Shan Oomes</a>
+      <nav class="navbar__links" aria-label="Primary navigation">
+        <a href="index.html#work"    class="navbar__link">Work</a>
+        <a href="index.html#about"   class="navbar__link">About</a>
+        <a href="index.html#skills"  class="navbar__link">Skills</a>
+        <a href="index.html#writing" class="navbar__link">Writing</a>
+        <a href="index.html#contact" class="navbar__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" aria-pressed="false" aria-label="Switch to dark mode" type="button">
+        <span class="theme-toggle__track">
+          <span class="theme-toggle__circle theme-toggle__circle--a"></span>
+          <span class="theme-toggle__circle theme-toggle__circle--b"></span>
+        </span>
+      </button>
+      <button class="navbar__hamburger" aria-label="Open navigation menu" aria-expanded="false" type="button">
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+        <span class="navbar__hamburger-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="navbar__mobile-menu" aria-hidden="true">
+    <nav>
+      <a href="index.html#work"    class="navbar__mobile-link">Work</a>
+      <a href="index.html#about"   class="navbar__mobile-link">About</a>
+      <a href="index.html#skills"  class="navbar__mobile-link">Skills</a>
+      <a href="index.html#writing" class="navbar__mobile-link">Writing</a>
+      <a href="index.html#contact" class="navbar__mobile-link">Contact</a>
+    </nav>
+  </div>
+
+  <section class="project-header section">
+    <div class="container">
+      <p class="caption" style="margin-bottom: var(--space-3);">
+        <a href="index.html#work" style="color: var(--color-text-muted);">← Work</a>
+      </p>
+      <p class="caption" style="color: var(--color-text-muted); margin-bottom: var(--space-2);">Banijay Benelux · 2022</p>
+      <h1 style="margin-bottom: var(--space-4);">Content Intelligence Dashboard</h1>
+      <p style="max-width: var(--max-width-text); margin-bottom: var(--space-6);">
+        An NLP-driven analytics platform that aggregates social media reactions to television
+        formats and surfaces audience sentiment, topic clusters, and engagement patterns for
+        content teams.
+      </p>
+      <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">NLP</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Sentiment Analysis</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Python</span>
+        <span class="caption" style="border: var(--border); padding: 6px 12px;">Dashboarding</span>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section section--secondary">
+    <div class="container">
+      <img src="assets/banijay-diagram.svg" alt="Banijay content intelligence pipeline diagram" style="width: 100%; max-width: 900px; margin-inline: auto; display: block;" loading="lazy" />
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <div class="container">
+      <div class="project-module">
+
+        <div class="project-module__block fade-up">
+          <h2>Context</h2>
+          <p>
+            Banijay Benelux produces some of the Netherlands' most-watched television formats.
+            Audience feedback used to reach content teams through broadcast ratings and occasional
+            focus groups — slow, expensive, and retrospective. Social media offers a real-time
+            signal, but the volume of data (thousands of posts per episode for popular formats)
+            made manual monitoring impractical.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Challenge</h2>
+          <p>
+            Build a system that can process Dutch-language social media text at scale and surface
+            actionable insights — not just raw sentiment scores, but specific topics and moments
+            that drove strong reactions. The output needed to be usable by content teams without
+            data science backgrounds.
+          </p>
+          <p>
+            Dutch NLP is harder than English NLP. Fewer pre-trained models, more informal
+            abbreviations and dialect in social media text, and compounding words that standard
+            tokenisers handle poorly.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I built</h2>
+          <p>
+            A three-stage pipeline feeding a live dashboard:
+          </p>
+          <ol style="padding-left: var(--space-3); line-height: var(--leading-body);">
+            <li style="margin-bottom: var(--space-2);"><strong>Collection</strong> — Scheduled scraping of platform data keyed by format-specific hashtags and account mentions, normalised into a common schema.</li>
+            <li style="margin-bottom: var(--space-2);"><strong>Analysis</strong> — Dutch sentiment classification using a fine-tuned BERTje model; BERTopic for unsupervised topic clustering; time-series aggregation to align reactions with broadcast timestamps.</li>
+            <li><strong>Dashboard</strong> — A Streamlit dashboard showing per-episode sentiment trends, top reaction topics, and flagged moments with unusually high engagement — filterable by format and date range.</li>
+          </ol>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>Key results</h2>
+          <p>
+            Content teams used the dashboard in production during the second half of the 2022
+            broadcast season. Producers reported finding specific audience reactions that informed
+            editorial decisions for the following episode — something that wasn't previously possible
+            between episodes with the old process.
+          </p>
+        </div>
+
+        <div class="project-module__block fade-up">
+          <h2>What I learned</h2>
+          <p>
+            The most important thing I learned wasn't technical: it was that the most valuable
+            output wasn't the overall sentiment score (which was what was originally requested)
+            but the topic clusters and the timestamp alignment. A content producer doesn't care
+            that an episode scored 0.67 positive — they care that reactions spiked negatively
+            at minute 42 and the dominant topic cluster was about a specific contestant.
+          </p>
+          <p>
+            Getting there required several rounds of showing the output to actual users and
+            iterating based on what they stopped to look at. The final dashboard is significantly
+            simpler than the first version, which tried to show everything.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__copy caption">© 2026 Shan Oomes</span>
+      <span class="footer__domain caption">shanoomes.nl</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

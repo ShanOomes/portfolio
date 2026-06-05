@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 200" font-family="IBM Plex Mono, monospace" font-size="11">
+  <rect width="900" height="200" fill="#F2F2F2"/>
+
+  <!-- 1: Environment -->
+  <rect x="20" y="60" width="140" height="80" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="90" y="96" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Gym</text>
+  <text x="90" y="110" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Environment</text>
+  <text x="90" y="55" text-anchor="middle" fill="#555" font-size="9">01 / ENVIRONMENT</text>
+
+  <line x1="160" y1="100" x2="195" y2="100" stroke="#111" stroke-width="1"/>
+  <polygon points="195,96 203,100 195,104" fill="#111"/>
+
+  <!-- 2: PPO Agent -->
+  <rect x="203" y="60" width="140" height="80" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="273" y="96" text-anchor="middle" fill="#111" font-size="10" font-weight="500">PPO Agent</text>
+  <text x="273" y="110" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Policy Network</text>
+  <text x="273" y="55" text-anchor="middle" fill="#555" font-size="9">02 / AGENT</text>
+
+  <!-- Training loop arrow (curved back) -->
+  <path d="M 343 80 Q 460 20 569 80" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="456" y="30" text-anchor="middle" fill="#555" font-size="9">TRAINING LOOP (2M steps)</text>
+  <polygon points="565,76 573,80 565,84" fill="#555"/>
+
+  <line x1="343" y1="100" x2="378" y2="100" stroke="#111" stroke-width="1"/>
+  <polygon points="378,96 386,100 378,104" fill="#111"/>
+
+  <!-- 3: Reward Signal -->
+  <rect x="386" y="60" width="140" height="80" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="456" y="96" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Reward</text>
+  <text x="456" y="110" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Function</text>
+  <text x="456" y="55" text-anchor="middle" fill="#555" font-size="9">03 / REWARD</text>
+
+  <line x1="526" y1="100" x2="561" y2="100" stroke="#111" stroke-width="1"/>
+  <polygon points="561,96 569,100 561,104" fill="#111"/>
+
+  <!-- 4: Trained Policy -->
+  <rect x="569" y="60" width="140" height="80" fill="none" stroke="#111" stroke-width="1"/>
+  <text x="639" y="96" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Trained</text>
+  <text x="639" y="110" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Policy</text>
+  <text x="639" y="55" text-anchor="middle" fill="#555" font-size="9">04 / INFERENCE</text>
+
+  <line x1="709" y1="100" x2="744" y2="100" stroke="#111" stroke-width="1"/>
+  <polygon points="744,96 752,100 744,104" fill="#111"/>
+
+  <!-- 5: Schedule Output -->
+  <rect x="752" y="60" width="130" height="80" fill="none" stroke="#1400FF" stroke-width="1"/>
+  <text x="817" y="96" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Draft</text>
+  <text x="817" y="110" text-anchor="middle" fill="#111" font-size="10" font-weight="500">Schedule</text>
+  <text x="817" y="55" text-anchor="middle" fill="#555" font-size="9">05 / OUTPUT</text>
+
+  <text x="450" y="185" text-anchor="middle" fill="#555" font-size="9" letter-spacing="2">MOVE — RL SCHEDULING AGENT</text>
+</svg>
